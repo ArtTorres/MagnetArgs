@@ -1,7 +1,7 @@
 ﻿
 namespace MagnetArgs.Test.Models
 {
-    class TypeObject : MagnetArgument
+    class TypeObject : MagnetOption
     {
         [Arg("string-value", Alias = "string")]
         public string StringValue { get; set; }
