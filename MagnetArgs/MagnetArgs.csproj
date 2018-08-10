@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <PackageId>arttorres_MagnetArgs</PackageId>
+    <Authors>Arturo Torres</Authors>
+    <RepositoryUrl>https://github.com/ArtTorres/MagnetArgs</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/ArtTorres/MagnetArgs</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/ArtTorres/MagnetArgs/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>Git</RepositoryType>
+  </PropertyGroup>
+
+</Project>
