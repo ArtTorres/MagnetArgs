@@ -29,11 +29,11 @@ namespace MagnetArgs
             for (int i = 0; i < properties.Length; i++)
             {
                 PropertyInfo propertyInfo = properties[i];
-                ArgSetAttribute attribute = GetAttribute<ArgSetAttribute>(propertyInfo);
+                OptionSetAttribute attribute = GetAttribute<OptionSetAttribute>(propertyInfo);
 
                 if (null != attribute)
                 {
-                    var o = (IArgument)typeof(Magnet)
+                    var o = (IOption)typeof(Magnet)
                     .GetMethod("CreateOptionSet", new[] { typeof(string[]), typeof(char) })
                     .MakeGenericMethod(propertyInfo.PropertyType)
                     .Invoke(obj, new object[] { args, '-' });
@@ -49,7 +49,7 @@ namespace MagnetArgs
             }
         }
 
-        private static void Magnetize<T>(T obj, Dictionary<string, string> args) where T : IArgument
+        private static void Magnetize<T>(T obj, Dictionary<string, string> args) where T : IOption
         {
             var errors = new List<Exception>();
             //var helpItems = new List<HelpAttribute>();
@@ -143,12 +143,12 @@ namespace MagnetArgs
             obj.Exceptions = errors;
         }
 
-        public static T CreateOptionSet<T>(string[] args, char symbol) where T : IArgument, new()
+        public static T CreateOptionSet<T>(string[] args, char symbol) where T : IOption, new()
         {
             return CreateOptionSet<T>(GetArguments(args, symbol));
         }
 
-        public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IArgument, new()
+        public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IOption, new()
         {
             T obj = new T();
 
