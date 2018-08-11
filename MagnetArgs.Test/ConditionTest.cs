@@ -188,7 +188,7 @@ namespace MagnetArgs.Test
 
             Magnet.Magnetize(obj, args);
 
-            Assert.Throws<Exception>(delegate ()
+            Assert.Throws<FormatException>(delegate ()
             {
                 foreach (var ex in obj.Exceptions)
                 {
