@@ -40,6 +40,7 @@ namespace MagnetArgs
         public ArgAttribute(string name)
         {
             this.Name = name;
+            this.Alias = name;
         }
     }
 }
