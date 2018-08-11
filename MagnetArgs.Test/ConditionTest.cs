@@ -9,7 +9,11 @@ namespace MagnetArgs.Test
         [Fact]
         public void IsRequired()
         {
-            var args = "--required-value HelloWorld --present-value  --default-value 50".Split(' ');
+            var args = new string[] {
+                "--required-value","HelloWorld",
+                "--present-value",
+                "--default-value","50"
+            };
 
             var obj = new ComplexObject();
 
@@ -21,7 +25,10 @@ namespace MagnetArgs.Test
         [Fact]
         public void IsRequiredException()
         {
-            var args = "--present-value  --default-value 50".Split(' ');
+            var args = new string[] {
+                "--present-value",
+                "--default-value","50"
+            };
 
             var obj = new ComplexObject();
 
@@ -39,7 +46,11 @@ namespace MagnetArgs.Test
         [Fact]
         public void IfPresent()
         {
-            var args = "--required-value HelloWorld --present-value  --default-value 50".Split(' ');
+            var args = new string[] {
+                "--required-value","HelloWorld",
+                "--present-value",
+                "--default-value","50"
+            };
 
             var obj = new ComplexObject();
 
@@ -51,7 +62,10 @@ namespace MagnetArgs.Test
         [Fact]
         public void IfNotPresent()
         {
-            var args = "--required-value HelloWorld  --default-value 50".Split(' ');
+            var args = new string[] {
+                "--required-value","HelloWorld",
+                "--default-value","50"
+            };
 
             var obj = new ComplexObject();
 
@@ -64,7 +78,11 @@ namespace MagnetArgs.Test
         public void IfPresentException()
         {
             //TODO: Evaluate if keep this behavior
-            var args = "--required-value HelloWorld --present-value  --default-value 50".Split(' ');
+            var args = new string[] {
+                "--required-value","HelloWorld",
+                "--present-value",
+                "--default-value","50"
+            };
 
             var obj = new ComplexObject();
 
@@ -82,7 +100,10 @@ namespace MagnetArgs.Test
         [Fact]
         public void DefaultValue()
         {
-            var args = "--required-value HelloWorld --present-value".Split(' ');
+            var args = new string[] {
+                "--required-value","HelloWorld",
+                "--present-value"
+            };
 
             var obj = new ComplexObject();
 
@@ -94,7 +115,11 @@ namespace MagnetArgs.Test
         [Fact]
         public void NotDefaultValue()
         {
-            var args = "--required-value HelloWorld --present-value --default-value 50".Split(' ');
+            var args = new string[] {
+                "--required-value","HelloWorld",
+                "--present-value",
+                "--default-value","50"
+            };
 
             var obj = new ComplexObject();
 
@@ -106,7 +131,9 @@ namespace MagnetArgs.Test
         [Fact]
         public void RangeValue()
         {
-            var args = "--range-value 5".Split(' ');
+            var args = new string[] {
+                "--range-value","5"
+            };
 
             var obj = new RangeObject();
 
@@ -118,7 +145,9 @@ namespace MagnetArgs.Test
         [Fact]
         public void OutOfRangeValue()
         {
-            var args = "--range-value 15".Split(' ');
+            var args = new string[] {
+                "--range-value","15"
+            };
 
             var obj = new RangeObject();
 
@@ -136,7 +165,9 @@ namespace MagnetArgs.Test
         [Fact]
         public void ParseValue()
         {
-            var args = $"--custom-point [-10,15]".Split(' ');
+            var args = new string[] {
+                "--custom-point","[-10,15]"
+            };
 
             var obj = new CustomObject();
 
@@ -149,7 +180,9 @@ namespace MagnetArgs.Test
         [Fact]
         public void ParseValueException()
         {
-            var args = "--custom-point {-10,15}".Split(' ');
+            var args = new string[] {
+                "--custom-point","{-10,15}"
+            };
 
             var obj = new CustomObject();
 
