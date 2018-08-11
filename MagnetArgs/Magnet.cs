@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace MagnetArgs
 {
@@ -22,37 +23,41 @@ namespace MagnetArgs
         //    }
         //}
 
-        public static void Magnetize(object obj, string[] args)
+        //public static void Magnetize(object obj, string[] args)
+        //{
+        //    PropertyInfo[] properties = obj.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+
+        //    for (int i = 0; i < properties.Length; i++)
+        //    {
+        //        PropertyInfo propertyInfo = properties[i];
+        //        OptionSetAttribute attribute = GetAttribute<OptionSetAttribute>(propertyInfo);
+
+        //        if (null != attribute)
+        //        {
+        //            var o = (IOption)typeof(Magnet)
+        //            .GetMethod("CreateOptionSet", new[] { typeof(string[]), typeof(char) })
+        //            .MakeGenericMethod(propertyInfo.PropertyType)
+        //            .Invoke(obj, new object[] { args, '-' });
+
+        //            //o.Order = attribute.HelpOrder;
+
+        //            propertyInfo.SetValue(
+        //                obj,
+        //                o,
+        //                null
+        //            );
+        //        }
+        //    }
+        //}
+
+        public static void Magnetize<T>(T obj, string[] args, char symbol = '-') where T : IOption
         {
-            PropertyInfo[] properties = obj.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-
-            for (int i = 0; i < properties.Length; i++)
-            {
-                PropertyInfo propertyInfo = properties[i];
-                OptionSetAttribute attribute = GetAttribute<OptionSetAttribute>(propertyInfo);
-
-                if (null != attribute)
-                {
-                    var o = (IOption)typeof(Magnet)
-                    .GetMethod("CreateOptionSet", new[] { typeof(string[]), typeof(char) })
-                    .MakeGenericMethod(propertyInfo.PropertyType)
-                    .Invoke(obj, new object[] { args, '-' });
-
-                    //o.Order = attribute.HelpOrder;
-
-                    propertyInfo.SetValue(
-                        obj,
-                        o,
-                        null
-                    );
-                }
-            }
+            Magnetize<T>(obj, GetArguments(args, symbol));
         }
 
-        private static void Magnetize<T>(T obj, Dictionary<string, string> args) where T : IOption
+        public static void Magnetize<T>(T obj, Dictionary<string, string> args) where T : IOption
         {
             var errors = new List<Exception>();
-            //var helpItems = new List<HelpAttribute>();
 
             foreach (var propertyInfo in obj.GetType().GetProperties())
             {
@@ -60,39 +65,27 @@ namespace MagnetArgs
 
                 if (null != attribute)
                 {
-                    // set help description
-                    //var help = GetAttribute<HelpAttribute>(propertyInfo);
+                    var isRequired = GetAttribute<IsRequiredAttribute>(propertyInfo);
+                    var ifPresent = GetAttribute<IfPresentAttribute>(propertyInfo);
                     var @default = GetAttribute<DefaultAttribute>(propertyInfo);
-                    var converter = GetAttribute<ParserAttribute>(propertyInfo);
-
-                    //if (help != null)
-                    //{
-                    //    help.SetOption(new OptionInfo()
-                    //    {
-                    //        Name = attribute.Name,
-                    //        Alias = attribute.Alias,
-                    //        IsRequired = attribute.IsRequired,
-                    //        IfPresent = attribute.IfPresent,
-                    //        DefaultValue = @default == null ? null : @default.Value
-                    //    });
-                    //    helpItems.Add(help);
-                    //}
+                    var @parser = GetAttribute<ParserAttribute>(propertyInfo);
+                    var range = GetAttribute<RangeAttribute>(propertyInfo);
 
                     try
                     {
-                        // key value
+                        // find key
                         string key = null;
                         if (args.ContainsKey(attribute.Name.ToLowerInvariant()))
                             key = attribute.Name;
                         else if (args.ContainsKey(attribute.Alias.ToLowerInvariant()))
                             key = attribute.Alias;
 
+                        // set value
                         string value = null;
-
                         if (key != null)
                             value = args[key];
 
-                        if (attribute.IsRequired && (key == null || string.IsNullOrEmpty(value)))
+                        if (isRequired != null && (key == null || string.IsNullOrEmpty(value)))
                         {   // if required with no key in arguments or no value specified by user
                             throw new IsRequiredException(string.Format("{0} is required and has no value.", attribute.Name));
                         }
@@ -101,7 +94,7 @@ namespace MagnetArgs
                         if ((key == null || string.IsNullOrEmpty(value)) && (@default != null && !string.IsNullOrEmpty(@default.Value)))
                             value = @default.Value;
 
-                        if (attribute.IfPresent && key != null)
+                        if (ifPresent != null && key != null)
                         {   // if present argument
                             if (propertyInfo.PropertyType == typeof(bool))
                                 value = "true";
@@ -113,7 +106,7 @@ namespace MagnetArgs
 
                         if (value != null)
                         {
-                            if (converter == null)
+                            if (@parser == null)
                             {   // value types
                                 propertyInfo.SetValue(
                                     obj,
@@ -123,10 +116,10 @@ namespace MagnetArgs
                             }
                             else
                             {   // custom types
-                                var parser = (IParser)Activator.CreateInstance(converter.Type);
+                                var instance = (IParser)Activator.CreateInstance(@parser.Type);
                                 propertyInfo.SetValue(
                                     obj,
-                                    parser.Parse(value),
+                                    instance.Parse(value),
                                     null
                                 );
                             }
@@ -139,22 +132,7 @@ namespace MagnetArgs
                 }
             }
 
-            //obj.Help = helpItems;
             obj.Exceptions = errors;
-        }
-
-        public static T CreateOptionSet<T>(string[] args, char symbol) where T : IOption, new()
-        {
-            return CreateOptionSet<T>(GetArguments(args, symbol));
-        }
-
-        public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IOption, new()
-        {
-            T obj = new T();
-
-            Magnetize<T>(obj, args);
-
-            return obj;
         }
 
         /// <summary>
@@ -172,7 +150,7 @@ namespace MagnetArgs
             {
                 if (value.StartsWith(symbol.ToString()))
                 {   // sets key
-                    arg = value.ToLowerInvariant();
+                    arg = Regex.Match(value, @"\w+[\w\W]*").Value.ToLowerInvariant();
                     output.Add(arg, null);
                 }
                 else if (!string.IsNullOrEmpty(arg))
@@ -183,6 +161,22 @@ namespace MagnetArgs
 
             return output;
         }
+
+        //public static T CreateOptionSet<T>(string[] args, char symbol) where T : IOption, new()
+        //{
+        //    return CreateOptionSet<T>(GetArguments(args, symbol));
+        //}
+
+        //public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IOption, new()
+        //{
+        //    T obj = new T();
+
+        //    Magnetize<T>(obj, args);
+
+        //    return obj;
+        //}
+
+        #region Tools
 
         /// <summary>
         /// Gets an attribute from a MemberInfo instance.
@@ -208,5 +202,7 @@ namespace MagnetArgs
 
             return default(T);
         }
+
+        #endregion
     }
 }

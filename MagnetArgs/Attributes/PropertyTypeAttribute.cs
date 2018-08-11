@@ -3,7 +3,7 @@
 namespace MagnetArgs
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public class PropertyTypeAttribute : Attribute
+    class PropertyTypeAttribute : Attribute
     {
         public Type[] Types { get; private set; }
 
