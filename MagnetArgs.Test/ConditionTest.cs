@@ -77,24 +77,37 @@ namespace MagnetArgs.Test
         [Fact]
         public void IfPresentException()
         {
-            //TODO: Evaluate if keep this behavior
             var args = new string[] {
-                "--required-value","HelloWorld",
                 "--present-value",
-                "--default-value","50"
+                "--raise-ex"
             };
 
-            var obj = new ComplexObject();
+            var obj = new PresentObject();
 
             Magnet.Magnetize(obj, args);
 
-            Assert.Throws<IsRequiredException>(delegate ()
+            Assert.Throws<IfPresentException>(delegate ()
             {
                 foreach (var ex in obj.Exceptions)
                 {
                     throw ex;
                 }
             });
+        }
+
+        [Fact]
+        public void IfPresentExceptionPass()
+        {
+            var args = new string[] {
+                "--present-value",
+                "--raise-ex"
+            };
+
+            var obj = new PresentPassObject();
+
+            Magnet.Magnetize(obj, args);
+
+            Assert.True(obj.PresentValue);
         }
 
         [Fact]
