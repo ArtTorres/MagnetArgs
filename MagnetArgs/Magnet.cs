@@ -69,7 +69,6 @@ namespace MagnetArgs
                     var ifPresent = GetAttribute<IfPresentAttribute>(propertyInfo);
                     var @default = GetAttribute<DefaultAttribute>(propertyInfo);
                     var @parser = GetAttribute<ParserAttribute>(propertyInfo);
-                    var range = GetAttribute<RangeAttribute>(propertyInfo);
 
                     try
                     {
