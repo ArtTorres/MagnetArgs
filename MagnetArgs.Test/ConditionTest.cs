@@ -142,40 +142,6 @@ namespace MagnetArgs.Test
         }
 
         [Fact]
-        public void RangeValue()
-        {
-            var args = new string[] {
-                "--range-value","5"
-            };
-
-            var obj = new RangeObject();
-
-            Magnet.Magnetize(obj, args);
-
-            Assert.Equal(5, obj.RangeValue);
-        }
-
-        [Fact]
-        public void OutOfRangeValue()
-        {
-            var args = new string[] {
-                "--range-value","15"
-            };
-
-            var obj = new RangeObject();
-
-            Magnet.Magnetize(obj, args);
-
-            Assert.Throws<OutOfRangeException>(delegate ()
-            {
-                foreach (var ex in obj.Exceptions)
-                {
-                    throw ex;
-                }
-            });
-        }
-
-        [Fact]
         public void ParseValue()
         {
             var args = new string[] {
