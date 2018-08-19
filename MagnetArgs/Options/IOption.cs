@@ -11,12 +11,6 @@ namespace MagnetArgs
             set;
         }
 
-        //IEnumerable<HelpAttribute> Help
-        //{
-        //    get;
-        //    set;
-        //}
-
         IEnumerable<Exception> Exceptions
         {
             get;

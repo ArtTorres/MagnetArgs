@@ -10,32 +10,12 @@ namespace MagnetArgs
             get;
             private set;
         }
+
         public string Alias
         {
             get;
             set;
         }
-        //public bool IfPresent
-        //{
-        //    get;
-        //    set;
-        //}
-        //public bool IsRequired
-        //{
-        //    get;
-        //    set;
-        //}
-
-        //public object Parser
-        //{
-        //    get;
-        //    set;
-        //}
-        //public string DefaultValue
-        //{
-        //    get;
-        //    set;
-        //}
 
         public ArgAttribute(string name)
         {

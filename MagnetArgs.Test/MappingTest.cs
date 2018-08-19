@@ -68,5 +68,22 @@ namespace MagnetArgs.Test
             Assert.Equal(v6, obj.DoubleValue);
             Assert.Equal(v7, obj.DecimalValue);
         }
+
+        [Fact]
+        public void OptionSet()
+        {
+            var args = new string[] {
+                "--present-value",
+                "--raise-ex",
+                "--custom-point","[-10,15]"
+            };
+
+            var obj = new OptionSetObject();
+
+            Magnet.Magnetize(obj, args);
+
+            Assert.True(obj.PObject.PresentValue);
+            Assert.Equal(15, obj.CObject.Point.Y);
+        }
     }
 }
