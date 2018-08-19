@@ -15,7 +15,7 @@ namespace MagnetArgs
             }
             else
             {
-                CreateOptionSet(obj, args, symbol);
+                MapOptions(obj, args, symbol);
             }
         }
 
@@ -100,7 +100,7 @@ namespace MagnetArgs
 
         #region OptionSet
 
-        private static void CreateOptionSet(object obj, string[] args, char symbol = '-')
+        private static void MapOptions(object obj, string[] args, char symbol = '-')
         {
             PropertyInfo[] properties = obj.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
 
@@ -112,7 +112,7 @@ namespace MagnetArgs
                 if (null != attribute)
                 {
                     var o = (IOption)typeof(Magnet)
-                    .GetMethod("CreateOptionSet", new[] { typeof(string[]), typeof(char) })
+                    .GetMethod("CreateOptionSet", BindingFlags.NonPublic | BindingFlags.Static, null, new[] { typeof(string[]), typeof(char) }, null)
                     .MakeGenericMethod(propertyInfo.PropertyType)
                     .Invoke(obj, new object[] { args, symbol });
 
@@ -130,7 +130,7 @@ namespace MagnetArgs
             return CreateOptionSet<T>(GetArguments(args, symbol));
         }
 
-        private static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IOption, new()
+        public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IOption, new()
         {
             T obj = new T();
 
