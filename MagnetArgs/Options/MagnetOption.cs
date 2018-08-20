@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace MagnetArgs
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class MagnetOption : IOption
     {
         public int Order

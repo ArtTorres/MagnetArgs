@@ -4,8 +4,16 @@ using System.Reflection;
 
 namespace MagnetArgs
 {
+    /// <summary>
+    /// 
+    /// </summary>
     static class MagnetExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="opt"></param>
+        /// <returns></returns>
         static IEnumerable<IOption> GetArguments(this IOption opt)
         {
             PropertyInfo[] properties = opt.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
@@ -22,6 +30,13 @@ namespace MagnetArgs
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="opt"></param>
+        /// <param name="member"></param>
+        /// <returns></returns>
         static T GetAttribute<T>(this IOption opt, MemberInfo member) where T : Attribute
         {
             object[] attributes = member.GetCustomAttributes(true);

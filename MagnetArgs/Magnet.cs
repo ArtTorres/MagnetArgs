@@ -7,6 +7,13 @@ namespace MagnetArgs
 {
     public static class Magnet
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <param name="args"></param>
+        /// <param name="symbol"></param>
         public static void Magnetize<T>(T obj, string[] args, char symbol = '-')
         {
             if (obj is IOption)
@@ -19,6 +26,12 @@ namespace MagnetArgs
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <param name="args"></param>
         public static void Magnetize<T>(T obj, Dictionary<string, string> args) where T : IOption
         {
             var errors = new List<Exception>();
@@ -100,6 +113,12 @@ namespace MagnetArgs
 
         #region OptionSet
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="args"></param>
+        /// <param name="symbol"></param>
         private static void MapOptions(object obj, string[] args, char symbol = '-')
         {
             PropertyInfo[] properties = obj.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
@@ -125,11 +144,24 @@ namespace MagnetArgs
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="args"></param>
+        /// <param name="symbol"></param>
+        /// <returns></returns>
         private static T CreateOptionSet<T>(string[] args, char symbol) where T : IOption, new()
         {
             return CreateOptionSet<T>(GetArguments(args, symbol));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IOption, new()
         {
             T obj = new T();

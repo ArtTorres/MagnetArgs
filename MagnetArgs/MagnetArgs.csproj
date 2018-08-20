@@ -12,7 +12,7 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/arttorres/MagnetArgs/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>argument parser</PackageTags>
-    <Version>0.2.0-alpha</Version>
+    <Version>0.2.0-beta</Version>
     <Copyright>Copyright ©2018 ArturoTorres</Copyright>
     <PackageIconUrl>https://raw.githubusercontent.com/arttorres/MagnetArgs/master/logo.png</PackageIconUrl>
     <PackageReleaseNotes>Initial release for MagnetArgs</PackageReleaseNotes>
