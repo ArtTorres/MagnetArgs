@@ -5,27 +5,27 @@ using System.Reflection;
 namespace MagnetArgs
 {
     /// <summary>
-    /// 
+    /// Extends the functionality of the IOption interface.
     /// </summary>
-    static class MagnetExtension
+    static class IOptionExtension
     {
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="opt"></param>
+        /// <param name="option"></param>
         /// <returns></returns>
-        static IEnumerable<IOption> GetArguments(this IOption opt)
+        static IEnumerable<IOption> GetArguments(this IOption option)
         {
-            PropertyInfo[] properties = opt.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+            PropertyInfo[] properties = option.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
 
             for (int i = 0; i < properties.Length; i++)
             {
                 PropertyInfo propertyInfo = properties[i];
-                OptionSetAttribute attribute = opt.GetAttribute<OptionSetAttribute>(propertyInfo);
+                OptionSetAttribute attribute = option.GetAttribute<OptionSetAttribute>(propertyInfo);
 
                 if (null != attribute)
                 {
-                    yield return (MagnetOption)propertyInfo.GetValue(opt, null);
+                    yield return (MagnetOption)propertyInfo.GetValue(option, null);
                 }
             }
         }
@@ -34,10 +34,10 @@ namespace MagnetArgs
         /// 
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="opt"></param>
+        /// <param name="option"></param>
         /// <param name="member"></param>
         /// <returns></returns>
-        static T GetAttribute<T>(this IOption opt, MemberInfo member) where T : Attribute
+        static T GetAttribute<T>(this IOption option, MemberInfo member) where T : Attribute
         {
             object[] attributes = member.GetCustomAttributes(true);
 

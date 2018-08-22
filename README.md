@@ -213,9 +213,6 @@ class PresentObject : MagnetOption
 {
     [Arg("present-value"), IfPresent]
     public bool PresentValue { get; set; }
-
-    [Arg("raise-ex"), IfPresent]
-    public int RaiseException { get; set; }
 }
 
 class CustomObject : MagnetOption

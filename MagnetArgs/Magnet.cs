@@ -8,12 +8,12 @@ namespace MagnetArgs
     public static class Magnet
     {
         /// <summary>
-        /// 
+        /// Magnetizes an object.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
-        /// <param name="args"></param>
-        /// <param name="symbol"></param>
+        /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
+        /// <param name="obj">The object to magnetize.</param>
+        /// <param name="args">A list of arguments.</param>
+        /// <param name="symbol">The symbol identifier for an option argument.</param>
         public static void Magnetize<T>(T obj, string[] args, char symbol = '-')
         {
             if (obj is IOption)
@@ -27,11 +27,11 @@ namespace MagnetArgs
         }
 
         /// <summary>
-        /// 
+        /// Magnetizes an object.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="obj"></param>
-        /// <param name="args"></param>
+        /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
+        /// <param name="obj">The object to magnetize.</param>
+        /// <param name="args">A collection of arguments.</param>
         public static void Magnetize<T>(T obj, Dictionary<string, string> args) where T : IOption
         {
             var errors = new List<Exception>();
@@ -117,8 +117,8 @@ namespace MagnetArgs
         /// 
         /// </summary>
         /// <param name="obj"></param>
-        /// <param name="args"></param>
-        /// <param name="symbol"></param>
+        /// <param name="args">A list of arguments.</param>
+        /// <param name="symbol">The symbol identifier for an option argument.</param>
         private static void MapOptions(object obj, string[] args, char symbol = '-')
         {
             PropertyInfo[] properties = obj.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
@@ -148,8 +148,8 @@ namespace MagnetArgs
         /// 
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="args"></param>
-        /// <param name="symbol"></param>
+        /// <param name="args">A list of arguments.</param>
+        /// <param name="symbol">The symbol identifier for an option argument.</param>
         /// <returns></returns>
         private static T CreateOptionSet<T>(string[] args, char symbol) where T : IOption, new()
         {
@@ -160,7 +160,7 @@ namespace MagnetArgs
         /// 
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="args"></param>
+        /// <param name="args">A list of arguments.</param>
         /// <returns></returns>
         public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IOption, new()
         {
@@ -178,8 +178,8 @@ namespace MagnetArgs
         /// <summary>
         /// Gets an instance of Dictionary with arguments and values.
         /// </summary>
-        /// <param name="args"></param>
-        /// <param name="symbol"></param>
+        /// <param name="args">A list of arguments.</param>
+        /// <param name="symbol">The symbol identifier for an option argument.</param>
         /// <returns></returns>
         public static Dictionary<string, string> GetArguments(string[] args, char symbol)
         {
