@@ -2,18 +2,18 @@
 
 namespace MagnetArgs
 {
+    /// <summary>
+    /// Represents a marker for automatic identification of arguments in command line.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = true)]
-    public class OptionSetAttribute : Attribute
+    public sealed class OptionSetAttribute : Attribute
     {
-        //public int HelpOrder
-        //{
-        //    get;
-        //    set;
-        //}
+        /// <summary>
+        /// Initializes an instance of <see cref="OptionSetAttribute"/>.
+        /// </summary>
+        public OptionSetAttribute()
+        {
 
-        //public OptionSetAttribute(int helpOrder = 0)
-        //{
-        //    this.HelpOrder = helpOrder;
-        //}
+        }
     }
 }

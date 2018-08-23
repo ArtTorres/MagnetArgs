@@ -1,17 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MagnetArgs
 {
+    /// <summary>
+    /// Represents a if-present rule for argument evaluation.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = true)]
-    public class IfPresentAttribute : Attribute
+    public sealed class IfPresentAttribute : Attribute
     {
-        public bool Value { get; private set; }
-
+        /// <summary>
+        /// Initializes an instance of <see cref="IfPresentAttribute"/>.
+        /// </summary>
         public IfPresentAttribute()
         {
-            this.Value = true;
         }
     }
 }

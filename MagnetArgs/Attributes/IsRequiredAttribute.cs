@@ -1,17 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MagnetArgs
 {
+    /// <summary>
+    /// Represents a is-required rule for argument evaluation.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = true)]
-    public class IsRequiredAttribute : Attribute
+    public sealed class IsRequiredAttribute : Attribute
     {
-        public bool Value { get; private set; }
-
+        /// <summary>
+        /// Initializes an instance of <see cref="IsRequiredAttribute"/>.
+        /// </summary>
         public IsRequiredAttribute()
         {
-            this.Value = true;
         }
     }
 }

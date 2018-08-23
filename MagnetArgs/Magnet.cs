@@ -7,54 +7,31 @@ namespace MagnetArgs
 {
     public static class Magnet
     {
-        //public static IEnumerable<IOption> GetOptions(object obj)
-        //{
-        //    PropertyInfo[] properties = obj.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-
-        //    for (int i = 0; i < properties.Length; i++)
-        //    {
-        //        PropertyInfo propertyInfo = properties[i];
-        //        OptionSetAttribute attribute = GetAttribute<OptionSetAttribute>(propertyInfo);
-
-        //        if (null != attribute)
-        //        {
-        //            yield return (MagnetOption)propertyInfo.GetValue(obj, null);
-        //        }
-        //    }
-        //}
-
-        //public static void Magnetize(object obj, string[] args)
-        //{
-        //    PropertyInfo[] properties = obj.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-
-        //    for (int i = 0; i < properties.Length; i++)
-        //    {
-        //        PropertyInfo propertyInfo = properties[i];
-        //        OptionSetAttribute attribute = GetAttribute<OptionSetAttribute>(propertyInfo);
-
-        //        if (null != attribute)
-        //        {
-        //            var o = (IOption)typeof(Magnet)
-        //            .GetMethod("CreateOptionSet", new[] { typeof(string[]), typeof(char) })
-        //            .MakeGenericMethod(propertyInfo.PropertyType)
-        //            .Invoke(obj, new object[] { args, '-' });
-
-        //            //o.Order = attribute.HelpOrder;
-
-        //            propertyInfo.SetValue(
-        //                obj,
-        //                o,
-        //                null
-        //            );
-        //        }
-        //    }
-        //}
-
-        public static void Magnetize<T>(T obj, string[] args, char symbol = '-') where T : IOption
+        /// <summary>
+        /// Magnetizes an object.
+        /// </summary>
+        /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
+        /// <param name="obj">The object to magnetize.</param>
+        /// <param name="args">A list of arguments.</param>
+        /// <param name="symbol">The symbol identifier for an option argument.</param>
+        public static void Magnetize<T>(T obj, string[] args, char symbol = '-')
         {
-            Magnetize<T>(obj, GetArguments(args, symbol));
+            if (obj is IOption)
+            {
+                Magnetize((IOption)obj, GetArguments(args, symbol));
+            }
+            else
+            {
+                MapOptions(obj, args, symbol);
+            }
         }
 
+        /// <summary>
+        /// Magnetizes an object.
+        /// </summary>
+        /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
+        /// <param name="obj">The object to magnetize.</param>
+        /// <param name="args">A collection of arguments.</param>
         public static void Magnetize<T>(T obj, Dictionary<string, string> args) where T : IOption
         {
             var errors = new List<Exception>();
@@ -134,11 +111,75 @@ namespace MagnetArgs
             obj.Exceptions = errors;
         }
 
+        #region OptionSet
+
         /// <summary>
-        /// Gets an instance of Dictionary with arguments and values.
+        /// Identifies properties with <see cref="OptionSetAttribute"/> attributes.
         /// </summary>
-        /// <param name="args"></param>
-        /// <param name="symbol"></param>
+        /// <param name="obj">The object to analyze.</param>
+        /// <param name="args">A list of arguments.</param>
+        /// <param name="symbol">The symbol identifier for an option argument.</param>
+        private static void MapOptions(object obj, string[] args, char symbol = '-')
+        {
+            PropertyInfo[] properties = obj.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+
+            for (int i = 0; i < properties.Length; i++)
+            {
+                PropertyInfo propertyInfo = properties[i];
+                OptionSetAttribute attribute = GetAttribute<OptionSetAttribute>(propertyInfo);
+
+                if (null != attribute)
+                {
+                    var o = (IOption)typeof(Magnet)
+                    .GetMethod("CreateOptionSet", BindingFlags.NonPublic | BindingFlags.Static, null, new[] { typeof(string[]), typeof(char) }, null)
+                    .MakeGenericMethod(propertyInfo.PropertyType)
+                    .Invoke(obj, new object[] { args, symbol });
+
+                    propertyInfo.SetValue(
+                        obj,
+                        o,
+                        null
+                    );
+                }
+            }
+        }
+
+        /// <summary>
+        /// Retrieves a magnetized object.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="args">A list of arguments.</param>
+        /// <param name="symbol">The symbol identifier for an option argument.</param>
+        /// <returns></returns>
+        private static T CreateOptionSet<T>(string[] args, char symbol) where T : IOption, new()
+        {
+            return CreateOptionSet<T>(GetArguments(args, symbol));
+        }
+
+        /// <summary>
+        /// Retrieves a magnetized object.
+        /// </summary>
+        /// <typeparam name="T">The type of option attribute.</typeparam>
+        /// <param name="args">A list of arguments.</param>
+        /// <returns></returns>
+        public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IOption, new()
+        {
+            T obj = new T();
+
+            Magnetize<T>(obj, args);
+
+            return obj;
+        }
+
+        #endregion
+
+        #region Tools
+
+        /// <summary>
+        /// Retrieves an instance of Dictionary with arguments and values.
+        /// </summary>
+        /// <param name="args">A list of arguments.</param>
+        /// <param name="symbol">The symbol identifier for an option argument.</param>
         /// <returns></returns>
         public static Dictionary<string, string> GetArguments(string[] args, char symbol)
         {
@@ -161,27 +202,11 @@ namespace MagnetArgs
             return output;
         }
 
-        //public static T CreateOptionSet<T>(string[] args, char symbol) where T : IOption, new()
-        //{
-        //    return CreateOptionSet<T>(GetArguments(args, symbol));
-        //}
-
-        //public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IOption, new()
-        //{
-        //    T obj = new T();
-
-        //    Magnetize<T>(obj, args);
-
-        //    return obj;
-        //}
-
-        #region Tools
-
         /// <summary>
-        /// Gets an attribute from a MemberInfo instance.
+        /// Retrieves an attribute from a MemberInfo instance.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="member"></param>
+        /// <typeparam name="T">The type of return attribute.</typeparam>
+        /// <param name="member">An instance of <see cref="MemberInfo"/>.</param>
         /// <returns></returns>
         private static T GetAttribute<T>(MemberInfo member) where T : Attribute
         {

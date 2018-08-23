@@ -1,63 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace MagnetArgs
 {
+    /// <summary>
+    /// Represents an implementation of <see cref="IOption"/> as an argument option.
+    /// </summary>
     public class MagnetOption : IOption
     {
+        /// <summary>
+        /// Gets or sets the order of evalutation of this option.
+        /// </summary>
         public int Order
         {
             get;
             set;
         } = 0;
 
-        //public IEnumerable<HelpAttribute> Help
-        //{
-        //    get;
-        //    set;
-        //}
-
+        /// <summary>
+        /// Gets the exceptions generated during the evaluation.
+        /// </summary>
         public IEnumerable<Exception> Exceptions
         {
             get;
             set;
         } = new List<Exception>();
-
-
-        //public IEnumerable<IOption> GetArguments()
-        //{
-        //    PropertyInfo[] properties = this.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-
-        //    for (int i = 0; i < properties.Length; i++)
-        //    {
-        //        PropertyInfo propertyInfo = properties[i];
-        //        OptionSetAttribute attribute = GetAttribute<OptionSetAttribute>(propertyInfo);
-
-        //        if (null != attribute)
-        //        {
-        //            yield return (MagnetOption)propertyInfo.GetValue(this, null);
-        //        }
-        //    }
-        //}
-
-        //private T GetAttribute<T>(MemberInfo member) where T : Attribute
-        //{
-        //    object[] attributes = member.GetCustomAttributes(true);
-
-        //    T result;
-        //    for (int i = 0; i < attributes.Length; i++)
-        //    {
-        //        object obj = attributes[i];
-
-        //        if (obj is T)
-        //        {
-        //            result = (T)((object)obj);
-        //            return result;
-        //        }
-        //    }
-
-        //    return default(T);
-        //}
     }
 }
