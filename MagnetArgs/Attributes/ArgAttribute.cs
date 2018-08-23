@@ -23,7 +23,7 @@ namespace MagnetArgs
         public string Alias
         {
             get;
-            private set;
+            set;
         }
 
         /// <summary>

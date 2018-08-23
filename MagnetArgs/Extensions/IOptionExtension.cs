@@ -10,9 +10,9 @@ namespace MagnetArgs
     static class IOptionExtension
     {
         /// <summary>
-        /// 
+        /// Retrieves a collecion of <see cref="IOption"/> in a specified object.
         /// </summary>
-        /// <param name="option"></param>
+        /// <param name="option">Extension type object.</param>
         /// <returns></returns>
         static IEnumerable<IOption> GetArguments(this IOption option)
         {
@@ -31,11 +31,11 @@ namespace MagnetArgs
         }
 
         /// <summary>
-        /// 
+        /// Retrieves a specified attribute from a <see cref="MemberInfo"/> object.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="option"></param>
-        /// <param name="member"></param>
+        /// <typeparam name="T">The type of return attribute.</typeparam>
+        /// <param name="option">Extension type object.</param>
+        /// <param name="member">An instance of <see cref="MemberInfo"/>.</param>
         /// <returns></returns>
         static T GetAttribute<T>(this IOption option, MemberInfo member) where T : Attribute
         {

@@ -114,9 +114,9 @@ namespace MagnetArgs
         #region OptionSet
 
         /// <summary>
-        /// 
+        /// Identifies properties with <see cref="OptionSetAttribute"/> attributes.
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="obj">The object to analyze.</param>
         /// <param name="args">A list of arguments.</param>
         /// <param name="symbol">The symbol identifier for an option argument.</param>
         private static void MapOptions(object obj, string[] args, char symbol = '-')
@@ -145,7 +145,7 @@ namespace MagnetArgs
         }
 
         /// <summary>
-        /// 
+        /// Retrieves a magnetized object.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="args">A list of arguments.</param>
@@ -157,9 +157,9 @@ namespace MagnetArgs
         }
 
         /// <summary>
-        /// 
+        /// Retrieves a magnetized object.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">The type of option attribute.</typeparam>
         /// <param name="args">A list of arguments.</param>
         /// <returns></returns>
         public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IOption, new()
@@ -176,7 +176,7 @@ namespace MagnetArgs
         #region Tools
 
         /// <summary>
-        /// Gets an instance of Dictionary with arguments and values.
+        /// Retrieves an instance of Dictionary with arguments and values.
         /// </summary>
         /// <param name="args">A list of arguments.</param>
         /// <param name="symbol">The symbol identifier for an option argument.</param>
@@ -203,10 +203,10 @@ namespace MagnetArgs
         }
 
         /// <summary>
-        /// Gets an attribute from a MemberInfo instance.
+        /// Retrieves an attribute from a MemberInfo instance.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="member"></param>
+        /// <typeparam name="T">The type of return attribute.</typeparam>
+        /// <param name="member">An instance of <see cref="MemberInfo"/>.</param>
         /// <returns></returns>
         private static T GetAttribute<T>(MemberInfo member) where T : Attribute
         {
