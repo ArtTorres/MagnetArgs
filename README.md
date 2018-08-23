@@ -1,5 +1,5 @@
 # MagnetArgs
-MagnetArgs helps in the task of mapping arguments to objects. Accelerating the process of define option variables in console applications or map complex objects in a variety of scenarios.
+MagnetArgs helps with the task of mapping arguments to objects. Accelerating the process of define option variables in console applications or map complex objects in a variety of scenarios.
 ----
 ## Basic Tasks
 1. Map your option objects.
