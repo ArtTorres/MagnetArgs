@@ -202,7 +202,7 @@ Magnet.Magnetize(obj, args);
 ----
 
 ## Magnetize with OptionSet
-When you have an object with multiple option classes, you can magnetize them at one using OptionSet.
+When you have an object with multiple option classes, you can magnetize them at once using OptionSet.
 Specify the OptionSet attribute in the properties with options who implement MagnetArgs.ArgAttribute.
 You will be able to magnetize the full object.
 

@@ -5,6 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace MagnetArgs
 {
+    /// <summary>
+    /// Represents a magnet that attracts argument values.
+    /// </summary>
     public static class Magnet
     {
         /// <summary>
