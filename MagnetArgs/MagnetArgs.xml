@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MagnetArgs</name>
+    </assembly>
+    <members>
+        <member name="T:MagnetArgs.ArgAttribute">
+            <summary>
+            Represents an argument in command line.
+            </summary>
+        </member>
+        <member name="P:MagnetArgs.ArgAttribute.Name">
+            <summary>
+            Gets the name identifier of the argument.
+            </summary>
+        </member>
+        <member name="P:MagnetArgs.ArgAttribute.Alias">
+            <summary>
+            Gets the alias (alternative name) of the argument.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.ArgAttribute.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:MagnetArgs.ArgAttribute"/>.
+            </summary>
+            <param name="name">The name identifier for the argument.</param>
+        </member>
+        <member name="T:MagnetArgs.DefaultAttribute">
+            <summary>
+            Represents the definition of a default value.
+            </summary>
+        </member>
+        <member name="P:MagnetArgs.DefaultAttribute.Value">
+            <summary>
+            Gets the value by default.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.DefaultAttribute.#ctor(System.String)">
+            <summary>
+            Initializes an instance of <see cref="T:MagnetArgs.DefaultAttribute"/>.
+            </summary>
+            <param name="value">The default value of an argument.</param>
+        </member>
+        <member name="T:MagnetArgs.IfPresentAttribute">
+            <summary>
+            Represents a if-present rule for argument evaluation.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.IfPresentAttribute.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:MagnetArgs.IfPresentAttribute"/>.
+            </summary>
+        </member>
+        <member name="T:MagnetArgs.IsRequiredAttribute">
+            <summary>
+            Represents a is-required rule for argument evaluation.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.IsRequiredAttribute.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:MagnetArgs.IsRequiredAttribute"/>.
+            </summary>
+        </member>
+        <member name="T:MagnetArgs.OptionSetAttribute">
+            <summary>
+            Represents a marker for automatic identification of arguments in command line.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.OptionSetAttribute.#ctor">
+            <summary>
+            Initializes an instance of <see cref="T:MagnetArgs.OptionSetAttribute"/>.
+            </summary>
+        </member>
+        <member name="T:MagnetArgs.ParserAttribute">
+            <summary>
+            Repesent a parser class for complex arguments.
+            </summary>
+        </member>
+        <member name="P:MagnetArgs.ParserAttribute.Type">
+            <summary>
+            Gets the type of the parsing class.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.ParserAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes an instance of <see cref="T:MagnetArgs.ParserAttribute"/>.
+            </summary>
+            <param name="type">The parsing class.</param>
+        </member>
+        <member name="T:MagnetArgs.PropertyTypeAttribute">
+            <summary>
+            Represents the type of a property.
+            </summary>
+        </member>
+        <member name="P:MagnetArgs.PropertyTypeAttribute.Types">
+            <summary>
+            Gets an array of types.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.PropertyTypeAttribute.#ctor(System.Type[])">
+            <summary>
+            Initializes an instance of <see cref="T:MagnetArgs.PropertyTypeAttribute"/>.
+            </summary>
+            <param name="types">An array of expected types.</param>
+        </member>
+        <member name="T:MagnetArgs.IfPresentException">
+            <summary>
+            Represents argument if-present errors ocurr during magnetize execution.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.IfPresentException.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:MagnetArgs.IfPresentException"/> class.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.IfPresentException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:MagnetArgs.IfPresentException"/> class with error message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:MagnetArgs.IfPresentException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:MagnetArgs.IfPresentException"/> class with error message and a reference of a inner exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference if no inner exception specified.</param>
+        </member>
+        <member name="T:MagnetArgs.IsRequiredException">
+            <summary>
+            Represents argument required errors ocurr during magnetize execution.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.IsRequiredException.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:MagnetArgs.IsRequiredException"/> class.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.IsRequiredException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:MagnetArgs.IsRequiredException"/> class with error message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:MagnetArgs.IsRequiredException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:MagnetArgs.IsRequiredException"/> class with error message and a reference of a inner exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference if no inner exception specified.</param>
+        </member>
+        <member name="T:MagnetArgs.MagnetException">
+            <summary>
+            Represents errors ocurr during magnetize execution.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.MagnetException.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:MagnetArgs.MagnetException"/> class.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.MagnetException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:MagnetArgs.MagnetException"/> class with error message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:MagnetArgs.MagnetException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of <see cref="T:MagnetArgs.MagnetException"/> class with error message and a reference of a inner exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference if no inner exception specified.</param>
+        </member>
+        <member name="T:MagnetArgs.IOptionExtension">
+            <summary>
+            Extends the functionality of the IOption interface.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.IOptionExtension.GetArguments(MagnetArgs.IOption)">
+            <summary>
+            Retrieves a collecion of <see cref="T:MagnetArgs.IOption"/> in a specified object.
+            </summary>
+            <param name="option">Extension type object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MagnetArgs.IOptionExtension.GetAttribute``1(MagnetArgs.IOption,System.Reflection.MemberInfo)">
+            <summary>
+            Retrieves a specified attribute from a <see cref="T:System.Reflection.MemberInfo"/> object.
+            </summary>
+            <typeparam name="T">The type of return attribute.</typeparam>
+            <param name="option">Extension type object.</param>
+            <param name="member">An instance of <see cref="T:System.Reflection.MemberInfo"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="T:MagnetArgs.Magnet">
+            <summary>
+            Represents a magnet that attracts argument values.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.Magnet.Magnetize``1(``0,System.String[],System.Char)">
+            <summary>
+            Magnetizes an object.
+            </summary>
+            <typeparam name="T">The type of the class object to magnetize.</typeparam>
+            <param name="obj">The object to magnetize.</param>
+            <param name="args">A list of arguments.</param>
+            <param name="symbol">The symbol identifier for an option argument.</param>
+        </member>
+        <member name="M:MagnetArgs.Magnet.Magnetize``1(``0,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Magnetizes an object.
+            </summary>
+            <typeparam name="T">The type of the class object to magnetize.</typeparam>
+            <param name="obj">The object to magnetize.</param>
+            <param name="args">A collection of arguments.</param>
+        </member>
+        <member name="M:MagnetArgs.Magnet.MapOptions(System.Object,System.String[],System.Char)">
+            <summary>
+            Identifies properties with <see cref="T:MagnetArgs.OptionSetAttribute"/> attributes.
+            </summary>
+            <param name="obj">The object to analyze.</param>
+            <param name="args">A list of arguments.</param>
+            <param name="symbol">The symbol identifier for an option argument.</param>
+        </member>
+        <member name="M:MagnetArgs.Magnet.CreateOptionSet``1(System.String[],System.Char)">
+            <summary>
+            Retrieves a magnetized object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="args">A list of arguments.</param>
+            <param name="symbol">The symbol identifier for an option argument.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MagnetArgs.Magnet.CreateOptionSet``1(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Retrieves a magnetized object.
+            </summary>
+            <typeparam name="T">The type of option attribute.</typeparam>
+            <param name="args">A list of arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MagnetArgs.Magnet.GetArguments(System.String[],System.Char)">
+            <summary>
+            Retrieves an instance of Dictionary with arguments and values.
+            </summary>
+            <param name="args">A list of arguments.</param>
+            <param name="symbol">The symbol identifier for an option argument.</param>
+            <returns></returns>
+        </member>
+        <member name="M:MagnetArgs.Magnet.GetAttribute``1(System.Reflection.MemberInfo)">
+            <summary>
+            Retrieves an attribute from a MemberInfo instance.
+            </summary>
+            <typeparam name="T">The type of return attribute.</typeparam>
+            <param name="member">An instance of <see cref="T:System.Reflection.MemberInfo"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="T:MagnetArgs.IOption">
+            <summary>
+            Represents an argument option.
+            </summary>
+        </member>
+        <member name="P:MagnetArgs.IOption.Order">
+            <summary>
+            Gets or sets the order of evalutation of this option.
+            </summary>
+        </member>
+        <member name="P:MagnetArgs.IOption.Exceptions">
+            <summary>
+            Gets the exceptions generated during the evaluation.
+            </summary>
+        </member>
+        <member name="T:MagnetArgs.MagnetOption">
+            <summary>
+            Represents an implementation of <see cref="T:MagnetArgs.IOption"/> as an argument option.
+            </summary>
+        </member>
+        <member name="P:MagnetArgs.MagnetOption.Order">
+            <summary>
+            Gets or sets the order of evalutation of this option.
+            </summary>
+        </member>
+        <member name="P:MagnetArgs.MagnetOption.Exceptions">
+            <summary>
+            Gets the exceptions generated during the evaluation.
+            </summary>
+        </member>
+        <member name="T:MagnetArgs.IParser">
+            <summary>
+            Represent a parsing class for command arguments.
+            </summary>
+        </member>
+        <member name="M:MagnetArgs.IParser.Parse(System.String)">
+            <summary>
+            Transforms an text input in an instance of an object.
+            </summary>
+            <param name="value">A text input who represents a complex object.</param>
+            <returns>An instance of the parsing object.</returns>
+        </member>
+    </members>
+</doc>

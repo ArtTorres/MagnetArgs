@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.2.0.0</AssemblyVersion>
-    <FileVersion>0.2.0.0</FileVersion>
+    <AssemblyVersion>0.2.1.0</AssemblyVersion>
+    <FileVersion>0.2.1.0</FileVersion>
     <PackageId>ArturoTorres.MagnetArgs</PackageId>
     <Authors>Arturo Torres</Authors>
     <RepositoryUrl>https://github.com/arttorres/MagnetArgs</RepositoryUrl>
@@ -12,11 +12,19 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/arttorres/MagnetArgs/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>argument parser</PackageTags>
-    <Version>0.2.0-beta</Version>
+    <Version>0.2.1-beta</Version>
     <Copyright>Copyright ©2018 ArturoTorres</Copyright>
     <PackageIconUrl>https://raw.githubusercontent.com/arttorres/MagnetArgs/master/logo.png</PackageIconUrl>
     <PackageReleaseNotes>Initial release for MagnetArgs</PackageReleaseNotes>
     <Description>Simple argument parser with magnetism.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>G:\ws_git\MagnetArgs\MagnetArgs\MagnetArgs.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>G:\ws_git\MagnetArgs\MagnetArgs\MagnetArgs.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
