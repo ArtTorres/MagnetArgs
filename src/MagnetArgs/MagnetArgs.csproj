@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>G:\ws_git\MagnetArgs\MagnetArgs\MagnetArgs.xml</DocumentationFile>
+    <DocumentationFile>G:\ws_git\MagnetArgs\src\MagnetArgs\MagnetArgs.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
