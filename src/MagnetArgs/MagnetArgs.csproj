@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFrameworks>netcoreapp2.0;netstandard2.0;net40;net45</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.2.1.0</AssemblyVersion>
-    <FileVersion>0.2.1.0</FileVersion>
+    <AssemblyVersion>0.2.2.0</AssemblyVersion>
+    <FileVersion>0.2.2.0</FileVersion>
     <PackageId>ArturoTorres.MagnetArgs</PackageId>
     <Authors>Arturo Torres</Authors>
     <RepositoryUrl>https://github.com/arttorres/MagnetArgs</RepositoryUrl>
@@ -12,7 +12,7 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/arttorres/MagnetArgs/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>argument parser</PackageTags>
-    <Version>0.2.1-beta</Version>
+    <Version>0.2.2-beta</Version>
     <Copyright>Copyright ©2018 ArturoTorres</Copyright>
     <PackageIconUrl>https://raw.githubusercontent.com/arttorres/MagnetArgs/master/logo.png</PackageIconUrl>
     <PackageReleaseNotes>Initial release for MagnetArgs</PackageReleaseNotes>
@@ -24,7 +24,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>G:\ws_git\MagnetArgs\MagnetArgs\MagnetArgs.xml</DocumentationFile>
+    <DocumentationFile>G:\ws_git\MagnetArgs\src\MagnetArgs\MagnetArgs.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
