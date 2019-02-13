@@ -21,9 +21,8 @@ namespace MagnetArgs
             for (int i = 0; i < properties.Length; i++)
             {
                 PropertyInfo propertyInfo = properties[i];
-                OptionSetAttribute attribute = option.GetAttribute<OptionSetAttribute>(propertyInfo);
 
-                if (null != attribute)
+                if (typeof(IOption).IsAssignableFrom(propertyInfo.PropertyType))
                 {
                     yield return (MagnetOption)propertyInfo.GetValue(option, null);
                 }

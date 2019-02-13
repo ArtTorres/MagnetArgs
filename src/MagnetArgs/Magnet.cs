@@ -117,7 +117,7 @@ namespace MagnetArgs
         #region OptionSet
 
         /// <summary>
-        /// Identifies properties with <see cref="OptionSetAttribute"/> attributes.
+        /// Identifies properties with <see cref="IOption"/> attributes.
         /// </summary>
         /// <param name="obj">The object to analyze.</param>
         /// <param name="args">A list of arguments.</param>
@@ -129,9 +129,8 @@ namespace MagnetArgs
             for (int i = 0; i < properties.Length; i++)
             {
                 PropertyInfo propertyInfo = properties[i];
-                OptionSetAttribute attribute = GetAttribute<OptionSetAttribute>(propertyInfo);
 
-                if (null != attribute)
+                if (typeof(IOption).IsAssignableFrom(propertyInfo.PropertyType))
                 {
                     var o = (IOption)typeof(Magnet)
                     .GetMethod("CreateOptionSet", BindingFlags.NonPublic | BindingFlags.Static, null, new[] { typeof(string[]), typeof(char) }, null)

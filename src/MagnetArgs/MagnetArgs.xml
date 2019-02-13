@@ -61,16 +61,6 @@
             Initializes an instance of <see cref="T:MagnetArgs.IsRequiredAttribute"/>.
             </summary>
         </member>
-        <member name="T:MagnetArgs.OptionSetAttribute">
-            <summary>
-            Represents a marker for automatic identification of arguments in command line.
-            </summary>
-        </member>
-        <member name="M:MagnetArgs.OptionSetAttribute.#ctor">
-            <summary>
-            Initializes an instance of <see cref="T:MagnetArgs.OptionSetAttribute"/>.
-            </summary>
-        </member>
         <member name="T:MagnetArgs.ParserAttribute">
             <summary>
             Repesent a parser class for complex arguments.
@@ -217,7 +207,7 @@
         </member>
         <member name="M:MagnetArgs.Magnet.MapOptions(System.Object,System.String[],System.Char)">
             <summary>
-            Identifies properties with <see cref="T:MagnetArgs.OptionSetAttribute"/> attributes.
+            Identifies properties with <see cref="T:MagnetArgs.IOption"/> attributes.
             </summary>
             <param name="obj">The object to analyze.</param>
             <param name="args">A list of arguments.</param>
