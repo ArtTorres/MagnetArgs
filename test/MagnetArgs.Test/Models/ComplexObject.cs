@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MagnetArgs.Test.Models
 {
-    class ComplexObject : MagnetOption
+    class ComplexObject : MagnetSet
     {
         [Arg("required-value"), IsRequired]
         public string RequiredValue { get; set; }
