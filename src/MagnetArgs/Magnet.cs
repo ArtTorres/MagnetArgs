@@ -19,9 +19,9 @@ namespace MagnetArgs
         /// <param name="symbol">The symbol identifier for an option argument.</param>
         public static void Magnetize<T>(T obj, string[] args, char symbol = '-')
         {
-            if (obj is IOption)
+            if (obj is IMagnetSet)
             {
-                Magnetize((IOption)obj, GetArguments(args, symbol));
+                Magnetize((IMagnetSet)obj, GetArguments(args, symbol));
             }
             else
             {
@@ -35,7 +35,7 @@ namespace MagnetArgs
         /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
         /// <param name="obj">The object to magnetize.</param>
         /// <param name="args">A collection of arguments.</param>
-        public static void Magnetize<T>(T obj, Dictionary<string, string> args) where T : IOption
+        public static void Magnetize<T>(T obj, Dictionary<string, string> args) where T : IMagnetSet
         {
             var errors = new List<Exception>();
 
@@ -117,7 +117,7 @@ namespace MagnetArgs
         #region OptionSet
 
         /// <summary>
-        /// Identifies properties with <see cref="OptionSetAttribute"/> attributes.
+        /// Identifies properties with <see cref="IMagnetSet"/> attributes.
         /// </summary>
         /// <param name="obj">The object to analyze.</param>
         /// <param name="args">A list of arguments.</param>
@@ -129,11 +129,10 @@ namespace MagnetArgs
             for (int i = 0; i < properties.Length; i++)
             {
                 PropertyInfo propertyInfo = properties[i];
-                OptionSetAttribute attribute = GetAttribute<OptionSetAttribute>(propertyInfo);
 
-                if (null != attribute)
+                if (typeof(IMagnetSet).IsAssignableFrom(propertyInfo.PropertyType))
                 {
-                    var o = (IOption)typeof(Magnet)
+                    var o = (IMagnetSet)typeof(Magnet)
                     .GetMethod("CreateOptionSet", BindingFlags.NonPublic | BindingFlags.Static, null, new[] { typeof(string[]), typeof(char) }, null)
                     .MakeGenericMethod(propertyInfo.PropertyType)
                     .Invoke(obj, new object[] { args, symbol });
@@ -154,7 +153,7 @@ namespace MagnetArgs
         /// <param name="args">A list of arguments.</param>
         /// <param name="symbol">The symbol identifier for an option argument.</param>
         /// <returns></returns>
-        private static T CreateOptionSet<T>(string[] args, char symbol) where T : IOption, new()
+        private static T CreateOptionSet<T>(string[] args, char symbol) where T : IMagnetSet, new()
         {
             return CreateOptionSet<T>(GetArguments(args, symbol));
         }
@@ -165,7 +164,7 @@ namespace MagnetArgs
         /// <typeparam name="T">The type of option attribute.</typeparam>
         /// <param name="args">A list of arguments.</param>
         /// <returns></returns>
-        public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IOption, new()
+        public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IMagnetSet, new()
         {
             T obj = new T();
 

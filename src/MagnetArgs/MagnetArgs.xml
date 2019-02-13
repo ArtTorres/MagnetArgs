@@ -61,16 +61,6 @@
             Initializes an instance of <see cref="T:MagnetArgs.IsRequiredAttribute"/>.
             </summary>
         </member>
-        <member name="T:MagnetArgs.OptionSetAttribute">
-            <summary>
-            Represents a marker for automatic identification of arguments in command line.
-            </summary>
-        </member>
-        <member name="M:MagnetArgs.OptionSetAttribute.#ctor">
-            <summary>
-            Initializes an instance of <see cref="T:MagnetArgs.OptionSetAttribute"/>.
-            </summary>
-        </member>
         <member name="T:MagnetArgs.ParserAttribute">
             <summary>
             Repesent a parser class for complex arguments.
@@ -172,19 +162,19 @@
             <param name="message">The error message that explains the reason for the exception.</param>
             <param name="inner">The exception that is the cause of the current exception, or a null reference if no inner exception specified.</param>
         </member>
-        <member name="T:MagnetArgs.IOptionExtension">
+        <member name="T:MagnetArgs.IMagnetSetExtension">
             <summary>
             Extends the functionality of the IOption interface.
             </summary>
         </member>
-        <member name="M:MagnetArgs.IOptionExtension.GetArguments(MagnetArgs.IOption)">
+        <member name="M:MagnetArgs.IMagnetSetExtension.GetArguments(MagnetArgs.IMagnetSet)">
             <summary>
-            Retrieves a collecion of <see cref="T:MagnetArgs.IOption"/> in a specified object.
+            Retrieves a collecion of <see cref="T:MagnetArgs.IMagnetSet"/> in a specified object.
             </summary>
             <param name="option">Extension type object.</param>
             <returns></returns>
         </member>
-        <member name="M:MagnetArgs.IOptionExtension.GetAttribute``1(MagnetArgs.IOption,System.Reflection.MemberInfo)">
+        <member name="M:MagnetArgs.IMagnetSetExtension.GetAttribute``1(MagnetArgs.IMagnetSet,System.Reflection.MemberInfo)">
             <summary>
             Retrieves a specified attribute from a <see cref="T:System.Reflection.MemberInfo"/> object.
             </summary>
@@ -217,7 +207,7 @@
         </member>
         <member name="M:MagnetArgs.Magnet.MapOptions(System.Object,System.String[],System.Char)">
             <summary>
-            Identifies properties with <see cref="T:MagnetArgs.OptionSetAttribute"/> attributes.
+            Identifies properties with <see cref="T:MagnetArgs.IMagnetSet"/> attributes.
             </summary>
             <param name="obj">The object to analyze.</param>
             <param name="args">A list of arguments.</param>
@@ -256,32 +246,22 @@
             <param name="member">An instance of <see cref="T:System.Reflection.MemberInfo"/>.</param>
             <returns></returns>
         </member>
-        <member name="T:MagnetArgs.IOption">
+        <member name="T:MagnetArgs.IMagnetSet">
             <summary>
             Represents an argument option.
             </summary>
         </member>
-        <member name="P:MagnetArgs.IOption.Order">
-            <summary>
-            Gets or sets the order of evalutation of this option.
-            </summary>
-        </member>
-        <member name="P:MagnetArgs.IOption.Exceptions">
+        <member name="P:MagnetArgs.IMagnetSet.Exceptions">
             <summary>
             Gets the exceptions generated during the evaluation.
             </summary>
         </member>
-        <member name="T:MagnetArgs.MagnetOption">
+        <member name="T:MagnetArgs.MagnetSet">
             <summary>
-            Represents an implementation of <see cref="T:MagnetArgs.IOption"/> as an argument option.
+            Represents an implementation of <see cref="T:MagnetArgs.IMagnetSet"/> as an argument option.
             </summary>
         </member>
-        <member name="P:MagnetArgs.MagnetOption.Order">
-            <summary>
-            Gets or sets the order of evalutation of this option.
-            </summary>
-        </member>
-        <member name="P:MagnetArgs.MagnetOption.Exceptions">
+        <member name="P:MagnetArgs.MagnetSet.Exceptions">
             <summary>
             Gets the exceptions generated during the evaluation.
             </summary>

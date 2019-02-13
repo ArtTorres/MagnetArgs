@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MagnetArgs.Test.Models
 {
-    class PresentObject : MagnetOption
+    class PresentObject : MagnetSet
     {
         [Arg("present-value"), IfPresent]
         public bool PresentValue { get; set; }
