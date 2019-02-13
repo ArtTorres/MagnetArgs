@@ -6,7 +6,7 @@ namespace MagnetArgs
     /// <summary>
     /// Represents an argument option.
     /// </summary>
-    public interface IOption
+    public interface IMagnetSet
     {
         /// <summary>
         /// Gets the exceptions generated during the evaluation.

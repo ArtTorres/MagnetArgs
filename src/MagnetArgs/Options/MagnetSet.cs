@@ -4,9 +4,9 @@ using System.Collections.Generic;
 namespace MagnetArgs
 {
     /// <summary>
-    /// Represents an implementation of <see cref="IOption"/> as an argument option.
+    /// Represents an implementation of <see cref="IMagnetSet"/> as an argument option.
     /// </summary>
-    public class MagnetOption : IOption
+    public class MagnetSet : IMagnetSet
     {
         /// <summary>
         /// Gets the exceptions generated during the evaluation.
