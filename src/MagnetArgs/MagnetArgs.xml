@@ -251,11 +251,6 @@
             Represents an argument option.
             </summary>
         </member>
-        <member name="P:MagnetArgs.IOption.Order">
-            <summary>
-            Gets or sets the order of evalutation of this option.
-            </summary>
-        </member>
         <member name="P:MagnetArgs.IOption.Exceptions">
             <summary>
             Gets the exceptions generated during the evaluation.
@@ -264,11 +259,6 @@
         <member name="T:MagnetArgs.MagnetOption">
             <summary>
             Represents an implementation of <see cref="T:MagnetArgs.IOption"/> as an argument option.
-            </summary>
-        </member>
-        <member name="P:MagnetArgs.MagnetOption.Order">
-            <summary>
-            Gets or sets the order of evalutation of this option.
             </summary>
         </member>
         <member name="P:MagnetArgs.MagnetOption.Exceptions">
