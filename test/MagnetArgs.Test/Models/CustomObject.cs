@@ -2,9 +2,9 @@
 
 namespace MagnetArgs.Test.Models
 {
-    class CustomObject : MagnetSet
+    class CustomObject : IronOre
     {
-        [Arg("custom-point", Alias = "point"), Parser(typeof(CustomPointParser))]
+        [Chunk("custom-point", Alias = "point"), Parser(typeof(CustomPointParser))]
         public CustomPoint Point { get; set; }
     }
 }

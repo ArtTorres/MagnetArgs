@@ -6,7 +6,7 @@ namespace MagnetArgs
     /// Represents an argument in command line.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = true)]
-    public sealed class ArgAttribute : Attribute
+    public sealed class ChunkAttribute : Attribute
     {
         /// <summary>
         /// Gets the name identifier of the argument.
@@ -27,10 +27,10 @@ namespace MagnetArgs
         }
 
         /// <summary>
-        /// Initializes an instance of <see cref="ArgAttribute"/>.
+        /// Initializes an instance of <see cref="ChunkAttribute"/>.
         /// </summary>
         /// <param name="name">The name identifier for the argument.</param>
-        public ArgAttribute(string name)
+        public ChunkAttribute(string name)
         {
             this.Name = name;
             this.Alias = name;

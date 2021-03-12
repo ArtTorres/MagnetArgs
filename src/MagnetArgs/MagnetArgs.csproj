@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.0;netstandard2.0;net40;net45</TargetFrameworks>
+    <TargetFrameworks>net5.0;netcoreapp3.1;netstandard2.0;net40;net45;net48</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.2.4.0</AssemblyVersion>
-    <FileVersion>0.2.4.0</FileVersion>
+    <AssemblyVersion>0.3.0.0</AssemblyVersion>
+    <FileVersion>0.3.0.0</FileVersion>
     <PackageId>MagnetArgs</PackageId>
     <Authors>Arturo Torres</Authors>
     <RepositoryUrl>https://github.com/arttorres/MagnetArgs</RepositoryUrl>
@@ -12,11 +12,11 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/arttorres/MagnetArgs/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>argument parser</PackageTags>
-    <Version>0.2.4-beta</Version>
+    <Version>0.3</Version>
     <Copyright>Copyright ©2019 ArturoTorres</Copyright>
     <PackageIconUrl></PackageIconUrl>
-    <PackageReleaseNotes>Mapping simplification.
-Minor improvements.</PackageReleaseNotes>
+    <PackageReleaseNotes>Minor improvements.
+</PackageReleaseNotes>
     <Description>Simple argument parser with magnetism.</Description>
   </PropertyGroup>
 

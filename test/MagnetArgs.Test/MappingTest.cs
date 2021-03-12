@@ -29,7 +29,7 @@ namespace MagnetArgs.Test
 
             var obj = new TypeObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.Equal(v1, obj.StringValue);
             Assert.Equal(v2, obj.CharValue);
@@ -57,7 +57,7 @@ namespace MagnetArgs.Test
 
             var obj = new TypeObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.Equal(v1, obj.StringValue);
             Assert.Equal(v2, obj.CharValue);
@@ -80,7 +80,7 @@ namespace MagnetArgs.Test
 
             var obj = new OptionSetObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.True(obj.PObject.PresentValue);
             Assert.Equal(15, obj.CObject.Point.Y);

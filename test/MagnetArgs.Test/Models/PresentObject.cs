@@ -4,12 +4,12 @@ using System.Text;
 
 namespace MagnetArgs.Test.Models
 {
-    class PresentObject : MagnetSet
+    class PresentObject : IronOre
     {
-        [Arg("present-value"), IfPresent]
+        [Chunk("present-value"), IfPresent]
         public bool PresentValue { get; set; }
 
-        [Arg("raise-ex"), IfPresent]
+        [Chunk("raise-ex"), IfPresent]
         public int RaiseException { get; set; }
     }
 }
