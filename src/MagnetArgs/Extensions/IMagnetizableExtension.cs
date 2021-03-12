@@ -7,14 +7,14 @@ namespace MagnetArgs
     /// <summary>
     /// Extends the functionality of the IOption interface.
     /// </summary>
-    static class IMagnetSetExtension
+    static class IMagnetizableExtension
     {
         /// <summary>
-        /// Retrieves a collecion of <see cref="IMagnetSet"/> in a specified object.
+        /// Retrieves a collecion of <see cref="IMagnetizable"/> in a specified object.
         /// </summary>
         /// <param name="option">Extension type object.</param>
         /// <returns></returns>
-        static IEnumerable<IMagnetSet> GetArguments(this IMagnetSet option)
+        static IEnumerable<IMagnetizable> GetArguments(this IMagnetizable option)
         {
             PropertyInfo[] properties = option.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
 
@@ -22,9 +22,9 @@ namespace MagnetArgs
             {
                 PropertyInfo propertyInfo = properties[i];
 
-                if (typeof(IMagnetSet).IsAssignableFrom(propertyInfo.PropertyType))
+                if (typeof(IMagnetizable).IsAssignableFrom(propertyInfo.PropertyType))
                 {
-                    yield return (MagnetSet)propertyInfo.GetValue(option, null);
+                    yield return (IronOre)propertyInfo.GetValue(option, null);
                 }
             }
         }
@@ -36,7 +36,7 @@ namespace MagnetArgs
         /// <param name="option">Extension type object.</param>
         /// <param name="member">An instance of <see cref="MemberInfo"/>.</param>
         /// <returns></returns>
-        static T GetAttribute<T>(this IMagnetSet option, MemberInfo member) where T : Attribute
+        static T GetAttribute<T>(this IMagnetizable option, MemberInfo member) where T : Attribute
         {
             object[] attributes = member.GetCustomAttributes(true);
 

@@ -17,7 +17,7 @@ namespace MagnetArgs.Test
 
             var obj = new ComplexObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.Equal("HelloWorld", obj.RequiredValue);
         }
@@ -32,7 +32,7 @@ namespace MagnetArgs.Test
 
             var obj = new ComplexObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.Throws<IsRequiredException>(delegate ()
             {
@@ -54,7 +54,7 @@ namespace MagnetArgs.Test
 
             var obj = new ComplexObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.True(obj.PresentValue);
         }
@@ -69,7 +69,7 @@ namespace MagnetArgs.Test
 
             var obj = new ComplexObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.False(obj.PresentValue);
         }
@@ -84,7 +84,7 @@ namespace MagnetArgs.Test
 
             var obj = new PresentObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.Throws<IfPresentException>(delegate ()
             {
@@ -105,7 +105,7 @@ namespace MagnetArgs.Test
 
             var obj = new PresentPassObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.True(obj.PresentValue);
         }
@@ -120,7 +120,7 @@ namespace MagnetArgs.Test
 
             var obj = new ComplexObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.Equal(25, obj.DefaultValue);
         }
@@ -136,7 +136,7 @@ namespace MagnetArgs.Test
 
             var obj = new ComplexObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.Equal(50, obj.DefaultValue);
         }
@@ -150,7 +150,7 @@ namespace MagnetArgs.Test
 
             var obj = new CustomObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.Equal(-10, obj.Point.X);
             Assert.Equal(15, obj.Point.Y);
@@ -165,7 +165,7 @@ namespace MagnetArgs.Test
 
             var obj = new CustomObject();
 
-            Magnet.Magnetize(obj, args);
+            Magnet.Attract(obj, args);
 
             Assert.Throws<FormatException>(delegate ()
             {

@@ -17,11 +17,11 @@ namespace MagnetArgs
         /// <param name="obj">The object to magnetize.</param>
         /// <param name="args">A list of arguments.</param>
         /// <param name="symbol">The symbol identifier for an option argument.</param>
-        public static void Magnetize<T>(T obj, string[] args, char symbol = '-')
+        public static void Attract<T>(T obj, string[] args, char symbol = '-')
         {
-            if (obj is IMagnetSet)
+            if (obj is IMagnetizable)
             {
-                Magnetize((IMagnetSet)obj, GetArguments(args, symbol));
+                Attract((IMagnetizable)obj, GetArguments(args, symbol));
             }
             else
             {
@@ -35,13 +35,13 @@ namespace MagnetArgs
         /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
         /// <param name="obj">The object to magnetize.</param>
         /// <param name="args">A collection of arguments.</param>
-        public static void Magnetize<T>(T obj, Dictionary<string, string> args) where T : IMagnetSet
+        public static void Attract<T>(T obj, Dictionary<string, string> args) where T : IMagnetizable
         {
             var errors = new List<Exception>();
 
             foreach (var propertyInfo in obj.GetType().GetProperties())
             {
-                var attribute = GetAttribute<ArgAttribute>(propertyInfo);
+                var attribute = GetAttribute<ChunkAttribute>(propertyInfo);
 
                 if (null != attribute)
                 {
@@ -117,7 +117,7 @@ namespace MagnetArgs
         #region OptionSet
 
         /// <summary>
-        /// Identifies properties with <see cref="IMagnetSet"/> attributes.
+        /// Identifies properties with <see cref="IMagnetizable"/> attributes.
         /// </summary>
         /// <param name="obj">The object to analyze.</param>
         /// <param name="args">A list of arguments.</param>
@@ -130,9 +130,9 @@ namespace MagnetArgs
             {
                 PropertyInfo propertyInfo = properties[i];
 
-                if (typeof(IMagnetSet).IsAssignableFrom(propertyInfo.PropertyType))
+                if (typeof(IMagnetizable).IsAssignableFrom(propertyInfo.PropertyType))
                 {
-                    var o = (IMagnetSet)typeof(Magnet)
+                    var o = (IMagnetizable)typeof(Magnet)
                     .GetMethod("CreateOptionSet", BindingFlags.NonPublic | BindingFlags.Static, null, new[] { typeof(string[]), typeof(char) }, null)
                     .MakeGenericMethod(propertyInfo.PropertyType)
                     .Invoke(obj, new object[] { args, symbol });
@@ -153,7 +153,7 @@ namespace MagnetArgs
         /// <param name="args">A list of arguments.</param>
         /// <param name="symbol">The symbol identifier for an option argument.</param>
         /// <returns></returns>
-        private static T CreateOptionSet<T>(string[] args, char symbol) where T : IMagnetSet, new()
+        private static T CreateOptionSet<T>(string[] args, char symbol) where T : IMagnetizable, new()
         {
             return CreateOptionSet<T>(GetArguments(args, symbol));
         }
@@ -164,11 +164,11 @@ namespace MagnetArgs
         /// <typeparam name="T">The type of option attribute.</typeparam>
         /// <param name="args">A list of arguments.</param>
         /// <returns></returns>
-        public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IMagnetSet, new()
+        public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IMagnetizable, new()
         {
             T obj = new T();
 
-            Magnetize<T>(obj, args);
+            Attract<T>(obj, args);
 
             return obj;
         }
