@@ -5,7 +5,7 @@ namespace MagnetArgs
     /// <summary>
     /// Represents a if-present rule for argument evaluation.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Property, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Property, Inherited = false)]
     public sealed class IfPresentAttribute : Attribute
     {
         /// <summary>

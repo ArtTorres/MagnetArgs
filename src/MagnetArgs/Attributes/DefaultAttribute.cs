@@ -5,7 +5,7 @@ namespace MagnetArgs
     /// <summary>
     /// Represents the definition of a default value.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Property, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Property, Inherited = false)]
     public sealed class DefaultAttribute : Attribute
     {
         /// <summary>

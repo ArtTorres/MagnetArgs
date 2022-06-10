@@ -5,7 +5,7 @@ namespace MagnetArgs
     /// <summary>
     /// Repesent a parser class for complex arguments.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Property, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Property, Inherited = false)]
     [PropertyType(typeof(IParser))]
     public sealed class ParserAttribute : Attribute
     {
