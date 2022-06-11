@@ -3,7 +3,7 @@
 namespace MagnetArgs
 {
     /// <summary>
-    /// Repesent a parser class for complex arguments.
+    /// Represents a parser attribute.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false)]
     [PropertyType(typeof(IParser))]

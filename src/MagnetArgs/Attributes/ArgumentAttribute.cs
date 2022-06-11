@@ -3,7 +3,7 @@
 namespace MagnetArgs
 {
     /// <summary>
-    /// Represents an argument in command line.
+    /// Represents an argument.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false)]
     public sealed class ArgumentAttribute : Attribute

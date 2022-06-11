@@ -3,7 +3,7 @@
 namespace MagnetArgs
 {
     /// <summary>
-    /// Represents parsing errors ocurr during magnetize execution.
+    /// Represents an error when a required argument is not available.
     /// </summary>
     public class ArgumentNotFoundException : MagnetException
     {

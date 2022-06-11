@@ -3,7 +3,7 @@
 namespace MagnetArgs
 {
     /// <summary>
-    /// Represents errors ocurr during magnetize execution.
+    /// Represents an error from MagnetArgs.
     /// </summary>
     public class MagnetException : Exception
     {
