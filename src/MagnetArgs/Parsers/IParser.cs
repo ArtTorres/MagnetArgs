@@ -1,5 +1,4 @@
-﻿
-namespace MagnetArgs
+﻿namespace MagnetArgs
 {
     /// <summary>
     /// Represent a parsing class for command arguments.
