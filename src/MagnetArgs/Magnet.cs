@@ -15,8 +15,24 @@ namespace MagnetArgs
         /// Magnetizes an object.
         /// </summary>
         /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
-        /// <param name="obj">The object to magnetize.</param>
         /// <param name="args">A list of arguments.</param>
+        /// <param name="symbol">The symbol identifier for an option argument.</param>
+        /// <exception cref="AggregateException">Throw a collection of errors if argument errors found.</exception>
+        public static T Attract<T>(string[] args, char symbol = '-') where T : class
+        {
+            T obj = default;
+
+            Attract(GetArguments(args, symbol), obj);
+
+            return obj;
+        }
+
+        /// <summary>
+        /// Magnetizes an object.
+        /// </summary>
+        /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
+        /// <param name="args">A list of arguments.</param>
+        /// <param name="obj">The object to magnetize.</param>
         /// <param name="symbol">The symbol identifier for an option argument.</param>
         /// <exception cref="AggregateException">Throw a collection of errors if argument errors found.</exception>
         public static void Attract<T>(string[] args, T obj, char symbol = '-') where T : class
@@ -28,8 +44,23 @@ namespace MagnetArgs
         /// Magnetizes an object.
         /// </summary>
         /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
-        /// <param name="obj">The object to magnetize.</param>
+        /// <param name="args">A list of arguments.</param>
+        /// <exception cref="AggregateException">Throw a collection of errors if argument errors found.</exception>
+        public static T Attract<T>(Dictionary<string, string> args) where T : class
+        {
+            T obj = default;
+
+            Attract<T>(args, obj);
+
+            return obj;
+        }
+
+        /// <summary>
+        /// Magnetizes an object.
+        /// </summary>
+        /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
         /// <param name="args">A collection of arguments.</param>
+        /// <param name="obj">The object to magnetize.</param>
         /// <exception cref="AggregateException">Throw a collection of errors if an argument error found.</exception>
         public static void Attract<T>(Dictionary<string, string> args, T obj) where T : class
         {
@@ -101,22 +132,29 @@ namespace MagnetArgs
 
                             if (value != null)
                             {
-                                if (@parser == null)
-                                {   // value types
-                                    propertyInfo.SetValue(
-                                        obj,
-                                        Convert.ChangeType(value, propertyInfo.PropertyType),
-                                        null
-                                    );
+                                try
+                                {
+                                    if (@parser == null)
+                                    {   // value types
+                                        propertyInfo.SetValue(
+                                            obj,
+                                            Convert.ChangeType(value, propertyInfo.PropertyType),
+                                            null
+                                        );
+                                    }
+                                    else
+                                    {   // custom types
+                                        var instance = (IParser)Activator.CreateInstance(@parser.Type);
+                                        propertyInfo.SetValue(
+                                            obj,
+                                            instance.Parse(value),
+                                            null
+                                        );
+                                    }
                                 }
-                                else
-                                {   // custom types
-                                    var instance = (IParser)Activator.CreateInstance(@parser.Type);
-                                    propertyInfo.SetValue(
-                                        obj,
-                                        instance.Parse(value),
-                                        null
-                                    );
+                                catch (FormatException)
+                                {
+                                    errors.Add(new ArgumentFormatException(attribute.Name));
                                 }
                             }
                         }
