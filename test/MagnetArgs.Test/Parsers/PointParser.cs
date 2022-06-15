@@ -1,19 +1,18 @@
-﻿using MagnetArgs.Test.Models;
-using System;
+﻿using System;
 
-namespace MagnetArgs.Test.Parsers
+namespace MagnetArgs.Test
 {
-    class CustomPointParser : IParser
+    class PointParser : IParser
     {
         public object Parse(string value)
         {
             var values = value.Replace("[", "").Replace("]", "").Trim().Split(',');
             if (values.Length == 2)
             {
-                var obj = new CustomPoint();
+                var obj = new Point();
                 obj.X = int.Parse(values[0]);
                 obj.Y = int.Parse(values[1]);
-
+                
                 return obj;
             }
             else
