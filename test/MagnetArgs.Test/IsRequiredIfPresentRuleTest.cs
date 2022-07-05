@@ -85,13 +85,52 @@ namespace MagnetArgs.Test
             });
         }
 
+        [Fact]
+        public void Eval_IsRequired_Rule_With_IsRequiredIfPresent_Success()
+        {
+            var args = new string[] {
+                "--a", TestValues.STRING_VALUE,
+                "--b", TestValues.STRING_VALUE
+            };
+
+            var obj = new RequiredOnlyWithIsRequiredIfPresent();
+
+            Magnet.Attract(args, obj);
+
+            Assert.Equal(TestValues.STRING_VALUE, obj.ValueA);
+            Assert.Equal(TestValues.STRING_VALUE, obj.ValueB);
+        }
+
+        [Fact]
+        public void Eval_IsRequired_Rule_With_IsRequiredIfPresent_Failed()
+        {
+            var args = new string[0];
+
+            var obj = new RequiredOnlyWithIsRequiredIfPresent();
+
+            Assert.Throws<ArgumentNotFoundException>(delegate ()
+            {
+                try
+                {
+                    Magnet.Attract(args, obj);
+                }
+                catch (AggregateException ex)
+                {
+                    foreach (var e in ex.InnerExceptions)
+                    {
+                        throw e;
+                    }
+                }
+            });
+        }
+
         [Magnetizable]
         private class RequiredIfPresentOnly
         {
             [Argument("a"), IfPresent]
             public bool ValueA { get; set; }
 
-            [Argument("b"), IsRequiredIfPresent("a")]
+            [Argument("b"), IsRequired, IfPresent("a")]
             public string ValueB { get; set; }
         }
 
@@ -101,7 +140,17 @@ namespace MagnetArgs.Test
             [Argument("a"), IfPresent]
             public bool ValueA { get; set; }
 
-            [Argument("b"), IsRequiredIfPresent("c")]
+            [Argument("b"), IsRequired, IfPresent("c")]
+            public string ValueB { get; set; }
+        }
+
+        [Magnetizable]
+        private class RequiredOnlyWithIsRequiredIfPresent
+        {
+            [Argument("a"), IsRequired]
+            public string ValueA { get; set; }
+
+            [Argument("b"), IsRequired, IfPresent("a")]
             public string ValueB { get; set; }
         }
     }

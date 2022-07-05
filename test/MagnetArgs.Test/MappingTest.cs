@@ -22,8 +22,6 @@ namespace MagnetArgs.Test
         [Fact]
         public void Map_SimpleValue_With_Shortcut_Success()
         {
-            // TODO: Arreglar error de referencia
-
             var args = new string[] {
                 "--string-value", $"{TestValues.STRING_VALUE}"
             };

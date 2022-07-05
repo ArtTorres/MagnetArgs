@@ -48,8 +48,6 @@ namespace MagnetArgs.Test
         [Fact]
         public void Eval_Parse_Rule_Missing_Parser_Exception()
         {
-            // TODO: Implement missing parser
-
             var args = new string[] {
                 "--point",TestValues.POINT
             };
