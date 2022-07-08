@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using MagnetArgs.Rules;
 
 namespace MagnetArgs
 {
@@ -18,9 +19,9 @@ namespace MagnetArgs
         /// <param name="args">A list of arguments.</param>
         /// <param name="symbol">The symbol identifier for an option argument.</param>
         /// <exception cref="AggregateException">Throw a collection of errors if argument errors found.</exception>
-        public static T Attract<T>(string[] args, char symbol = '-') where T : class
+        public static T Attract<T>(string[] args, char symbol = '-') where T : class, new()
         {
-            T obj = default;
+            T obj = new T();
 
             Attract(GetArguments(args, symbol), obj);
 
@@ -55,121 +56,55 @@ namespace MagnetArgs
             return obj;
         }
 
-        /// <summary>
-        /// Magnetizes an object.
-        /// </summary>
-        /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
-        /// <param name="args">A collection of arguments.</param>
-        /// <param name="obj">The object to magnetize.</param>
-        /// <exception cref="AggregateException">Throw a collection of errors if an argument error found.</exception>
         public static void Attract<T>(Dictionary<string, string> args, T obj) where T : class
         {
             if (obj.ContainsAttribute<MagnetizableAttribute>())
             {
                 var errors = new List<Exception>();
-                var properties = new Dictionary<PropertyInfo, PropertyInfo>();
 
-                foreach (var propertyInfo in obj.GetType().GetProperties())
+                var rules = new MagnetRules();
+                var properties = obj.GetType().GetProperties();
+
+                foreach (var property in properties)
                 {
-                    var attribute = propertyInfo.GetAttribute<ArgumentAttribute>();
+                    MagnetProperty mProperty = new MagnetProperty(property, args); ;
 
-                    if (null != attribute)
+                    if (null != mProperty.Attribute)
                     {
-                        var isRequiredIfPresent = propertyInfo.GetAttribute<IsRequiredIfPresentAttribute>();
-                        var isRequired = propertyInfo.GetAttribute<IsRequiredAttribute>();
-                        var ifPresent = propertyInfo.GetAttribute<IfPresentAttribute>();
-                        var @default = propertyInfo.GetAttribute<DefaultAttribute>();
-                        var @parser = propertyInfo.GetAttribute<ParserAttribute>();
-
                         try
                         {
-                            // find key
-                            string key = null;
-                            if (args.ContainsKey(attribute.Name.ToLowerInvariant()))
-                                key = attribute.Name;
-                            else if (args.ContainsKey(attribute.Alias.ToLowerInvariant()))
-                                key = attribute.Alias;
+                            if (mProperty.ExistNamed && !ExistArgument(mProperty.IfPresentAttribute.ArgumentName, properties))
+                                throw new ArgumentNotFoundException(mProperty.IfPresentAttribute.ArgumentName);
 
-                            // set value
-                            string value = null;
-                            if (key != null)
-                                value = args[key];
+                            var result = rules.Eval(mProperty);
 
+                            var action = result.Item1;
+                            var source = result.Item2;
 
-                            if (isRequired != null && (key == null || string.IsNullOrEmpty(value)))
-                            {   // if required with no key in arguments or no value specified by user
-                                throw new ArgumentNotFoundException(string.Format("{0} is required and has no value.", attribute.Name));
-                            }
-
-
-                            if (isRequiredIfPresent != null && (key == null || string.IsNullOrEmpty(value)))
+                            switch (action)
                             {
-                                var target = obj.GetType().GetProperties()
-                                    .SingleOrDefault(s => s.GetAttribute<ArgumentAttribute>().Name == isRequiredIfPresent.ArgumentName);
-
-                                if (target != null)
-                                    properties.Add(propertyInfo, target);
-                                else
-                                    throw new ArgumentNotFoundException(attribute.Name, $"Required argument \"{isRequiredIfPresent.ArgumentName}\" not found.");
+                                case MagnetAction.SetNative:
+                                case MagnetAction.SetTyped:
+                                    Console.WriteLine("Action Taked: Set from {1}, Source: {0}", source.ToString(), action);
+                                    SetValue(obj, GetValueFromSource(source, mProperty), mProperty);
+                                    break;
+                                case MagnetAction.SetTrue:
+                                    Console.WriteLine("Action Taked: Set as True, Source: {0}", source.ToString());
+                                    SetValue(obj, bool.TrueString, mProperty);
+                                    break;
+                                case MagnetAction.Ignore:
+                                    Console.WriteLine("Action Taked: Ignore", action.ToString());
+                                    break;
                             }
-
-
-                            // default value
-                            if ((key == null || string.IsNullOrEmpty(value)) && (@default != null && !string.IsNullOrEmpty(@default.Value)))
-                                value = @default.Value;
-
-
-                            if (ifPresent != null && key != null)
-                            {   // if present argument
-                                if (propertyInfo.PropertyType == typeof(bool))
-                                    value = "true";
-                                else if (@default == null || string.IsNullOrEmpty(@default.Value))
-                                    throw new ArgumentFormatException("Non boolean attributes with IfPresent rule require a default value.");
-                                else
-                                    value = @default.Value;
-                            }
-
-
-                            if (value != null)
-                            {
-                                try
-                                {
-                                    if (@parser == null)
-                                    {   // value types
-                                        propertyInfo.SetValue(
-                                            obj,
-                                            Convert.ChangeType(value, propertyInfo.PropertyType),
-                                            null
-                                        );
-                                    }
-                                    else
-                                    {   // custom types
-                                        var instance = (IParser)Activator.CreateInstance(@parser.Type);
-                                        propertyInfo.SetValue(
-                                            obj,
-                                            instance.Parse(value),
-                                            null
-                                        );
-                                    }
-                                }
-                                catch (FormatException)
-                                {
-                                    errors.Add(new ArgumentFormatException(attribute.Name));
-                                }
-                            }
+                        }
+                        catch (FormatException)
+                        {
+                            errors.Add(new ArgumentFormatException(mProperty.Attribute.Name));
                         }
                         catch (Exception ex)
                         {
                             errors.Add(ex);
                         }
-                    }
-                }
-
-                foreach (var property in properties)
-                {
-                    if (property.Key.GetValue(obj) != null && property.Value.GetValue(obj) != null)
-                    {
-                        errors.Add(new ArgumentNotFoundException(string.Format("{0} is required and has no value.", property.Key.Name)));
                     }
                 }
 
@@ -182,6 +117,17 @@ namespace MagnetArgs
             {
                 throw new NotMagnetizableException(obj.GetType().ToString());
             }
+        }
+
+        private static bool ExistArgument(string label, IEnumerable<PropertyInfo> properties)
+        {
+            foreach(PropertyInfo property in properties)
+            {
+                if (label.Equals(property.GetAttribute<ArgumentAttribute>().Name))
+                    return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -209,6 +155,50 @@ namespace MagnetArgs
             }
 
             return output;
+        }
+
+        private static void SetValue<T>(T obj, string value, MagnetProperty property) where T : class
+        {
+            if (value != null)
+            {
+                if (property.ParserAttribute == null)
+                {   // primitive types
+                    property.Property.SetValue(
+                        obj,
+                        Convert.ChangeType(value, property.Property.PropertyType),
+                        null
+                    );
+                }
+                else
+                {   // custom types
+                    if (typeof(IParser).IsAssignableFrom(property.ParserAttribute.Type))
+                    {
+                        var instance = (IParser)Activator.CreateInstance(property.ParserAttribute.Type);
+                        property.Property.SetValue(
+                            obj,
+                            instance.Parse(value),
+                            null
+                        );
+                    }
+                    else
+                    {
+                        throw new MissingParserException(property.Attribute.Name, $"Class {property.ParserAttribute.Type} is not a valid parser.");
+                    }
+                }
+            }
+        }
+
+        private static string GetValueFromSource(Source source, MagnetProperty property)
+        {
+            switch (source)
+            {
+                case Source.Input:
+                    return property.Input.Value;
+                case Source.Default:
+                    return property.DefaultAttribute.Value;
+                default:
+                    return null;
+            }
         }
     }
 }

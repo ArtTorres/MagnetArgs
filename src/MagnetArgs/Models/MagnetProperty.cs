@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace MagnetArgs
 {
-    internal class MagnetProperty : IPremise
+    internal class MagnetProperty : IRulesPremise
     {
         public PropertyInfo Property { get; private set; }
 
@@ -19,6 +19,8 @@ namespace MagnetArgs
         public DefaultAttribute DefaultAttribute { get; private set; }
 
         public ParserAttribute ParserAttribute { get; private set; }
+
+        public bool HasKey { get; private set; }
 
         public bool HasValue { get; private set; }
 
@@ -40,13 +42,13 @@ namespace MagnetArgs
 
         public bool HasParser { get; private set; }
 
+        private Dictionary<string, string> _args;
 
-        public MagnetProperty(
-            PropertyInfo property,
-            Dictionary<string, string> args
-        )
+
+        public MagnetProperty(PropertyInfo property, Dictionary<string, string> args)
         {
             Property=property;
+            _args=args;
 
             Attribute= property.GetAttribute<ArgumentAttribute>();
             IsRequiredAttribute= property.GetAttribute<IsRequiredAttribute>();
@@ -61,16 +63,25 @@ namespace MagnetArgs
 
         private void SetPremises()
         {
-            HasValue = null != Input.Value;
-            IsNative = false;
+            HasKey = null != Input.Key;
+            HasValue = !string.IsNullOrEmpty(Input.Value);
+
+            IsNative = (Property.PropertyType.IsPrimitive || Property.PropertyType == typeof(string));
             IsBoolean = Property.PropertyType == typeof(bool);
-            IsTyped = false;
+            IsTyped = !IsNative;
 
             IsRequired = null != IsRequiredAttribute;
             IsPresent= null != IfPresentAttribute;
 
-            ExistNamed = false;
-            NamedHasValue = false;
+            ExistNamed = (
+                IsPresent 
+                && null != IfPresentAttribute.ArgumentName 
+            );
+            NamedHasValue = (
+                ExistNamed 
+                && _args.ContainsKey(IfPresentAttribute.ArgumentName) 
+                && null != _args[IfPresentAttribute.ArgumentName]
+            );
 
             HasDefault = null != DefaultAttribute;
             HasParser = null != ParserAttribute;
