@@ -1,8 +1,7 @@
-﻿using MagnetArgs.Rules;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
 
-namespace MagnetArgs
+namespace MagnetArgs.Rules
 {
     internal class MagnetProperty : IRulesPremise
     {

@@ -1,4 +1,4 @@
-﻿namespace MagnetArgs
+﻿namespace MagnetArgs.Rules
 {
     internal class KeyValue
     {

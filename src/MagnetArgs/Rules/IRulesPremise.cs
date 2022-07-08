@@ -1,6 +1,6 @@
 ﻿namespace MagnetArgs.Rules
 {
-    public interface IRulesPremise
+    internal interface IRulesPremise
     {
         bool HasKey { get; }
 
