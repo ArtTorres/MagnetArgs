@@ -1,4 +1,6 @@
-﻿namespace MagnetArgs
+﻿using System;
+
+namespace MagnetArgs
 {
     /// <summary>
     /// Represent a parsing class for command arguments.
@@ -6,7 +8,7 @@
     public interface IParser
     {
         /// <summary>
-        /// Transforms an text input in an instance of an object.
+        /// Transforms an text input in an instance of <see cref="Object"/>.
         /// </summary>
         /// <param name="value">A text input who represents a complex object.</param>
         /// <returns>An instance of the parsing object.</returns>
