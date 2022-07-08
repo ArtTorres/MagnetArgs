@@ -3,7 +3,7 @@
 namespace MagnetArgs
 {
     /// <summary>
-    /// Represents a missing parser error ocurr during magnetize execution.
+    /// Represents an error when a parser attribute is required.
     /// </summary>
     public class MissingParserException : MagnetException
     {
