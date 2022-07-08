@@ -48,7 +48,6 @@ namespace MagnetArgs.Test
         [Fact]
         public void Eval_IfPresent_Rule_NotPresent_With_Default_Success()
         {
-            // TODO: Si no hay argumento, el valor por default no debe ser aplicado.
             var args = new string[0];
 
             var obj = new PresentOnlyWithDefault();

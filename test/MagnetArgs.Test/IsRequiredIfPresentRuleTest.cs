@@ -37,7 +37,6 @@ namespace MagnetArgs.Test
         [Fact]
         public void Eval_IsRequiredIfPresent_Rule_Exception()
         {
-            // TODO: ArgumentIsRequired no se lanza
             var args = new string[] {
                 "--a", string.Empty
             };

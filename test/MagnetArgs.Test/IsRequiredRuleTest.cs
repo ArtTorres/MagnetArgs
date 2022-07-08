@@ -59,11 +59,11 @@ namespace MagnetArgs.Test
         }
 
         [Fact]
-        public void Eval_IsRequired_Rule_With_Default_No_Argument_Failed()
+        public void Eval_IsRequired_Rule_With_No_Default_No_Argument_Failed()
         {
             var args = new string[0];
 
-            var obj = new RequiredOnlyWithDefault();
+            var obj = new RequiredOnly();
 
             Assert.Throws<ArgumentNotFoundException>(delegate ()
             {

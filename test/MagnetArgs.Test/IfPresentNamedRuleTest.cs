@@ -1,10 +1,13 @@
-﻿using Xunit;
+﻿/*
+ Not implemented features tests
+ */
+
+using Xunit;
 
 namespace MagnetArgs.Test
 {
     public class IfPresentNamedRuleTest
     {
-        [Fact(DisplayName = "Eval_IfPresentNamed_Rule_Success")]
         public void Eval_IfPresentNamed_Rule_Success()
         {
             var args = new string[] {
@@ -19,7 +22,6 @@ namespace MagnetArgs.Test
             Assert.True(obj.ValueB);
         }
 
-        [Fact]
         public void Eval_IfPresentNamed_Rule_Ignore_Success()
         {
             var args = new string[0];
