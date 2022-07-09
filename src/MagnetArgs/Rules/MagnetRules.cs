@@ -7,16 +7,18 @@ namespace MagnetArgs.Rules
         private RuleWorkflow _flow;
         private State _previousState = State.OutOfFlow;
         private Source _source = Source.None;
+        private string _argumentName;
 
         public MagnetRules()
         {
             _flow = new RuleWorkflow();
         }
 
-        public (MagnetAction, Source) Eval(IRulesPremise premise)
+        public (MagnetAction, Source) Eval(string argumentName, IRulesPremise premise)
         {
             try
             {
+                _argumentName = argumentName;
                 _flow.ResetState();
 
                 var state = GetState(premise);
@@ -82,7 +84,7 @@ namespace MagnetArgs.Rules
                     ChangeState(Premise.HasDefault);
 
                 else
-                    throw new ArgumentNotFoundException("Required");
+                    throw new ArgumentNotFoundException(_argumentName);
             }
             else if (_flow.State == State.Present)
             {
@@ -98,7 +100,7 @@ namespace MagnetArgs.Rules
                     ChangeState(Premise.HasDefault);
 
                 else
-                    throw new DefaultIsMissingException("Present");
+                    throw new DefaultIsMissingException(_argumentName);
             }
             else if (_flow.State == State.Named)
             {
@@ -114,7 +116,7 @@ namespace MagnetArgs.Rules
                     ChangeState(Premise.HasParser);
                 else
                 {
-                    throw new MissingParserException("Parse");
+                    throw new MissingParserException(_argumentName);
                 }
             }
 

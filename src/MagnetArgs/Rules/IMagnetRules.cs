@@ -2,6 +2,6 @@
 {
     internal interface IMagnetRules
     {
-        (MagnetAction, Source) Eval(IRulesPremise model);
+        (MagnetAction, Source) Eval(string argumentName, IRulesPremise model);
     }
 }

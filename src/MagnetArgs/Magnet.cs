@@ -86,7 +86,7 @@ namespace MagnetArgs
                             if (mProperty.ExistNamed && !ExistArgument(mProperty.IfPresentAttribute.ArgumentName, properties))
                                 throw new ArgumentNotFoundException(mProperty.IfPresentAttribute.ArgumentName);
 
-                            var result = rules.Eval(mProperty);
+                            var result = rules.Eval(mProperty.Attribute.Name, mProperty);
 
                             var action = result.Item1;
                             var source = result.Item2;
