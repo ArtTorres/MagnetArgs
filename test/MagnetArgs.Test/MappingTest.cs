@@ -1,89 +1,199 @@
+using System;
 using Xunit;
-using MagnetArgs.Test.Models;
 
 namespace MagnetArgs.Test
 {
     public class MappingTest
     {
-        private string v1 = "Hello World";
-        private char v2 = 'a';
-        private int v3 = 2147483647;
-        private long v4 = 9223372036854775807;
-        private float v5 = 1000000.0f;
-        private double v6 = 1000000.0d;
-        private decimal v7 = 1000000.0m;
-
         [Fact]
-        public void Alias()
+        public void Map_SimpleValue_Success()
         {
             var args = new string[] {
-                "-string", $"{v1}",
-                "-char", $"{v2}",
-                "-int", $"{v3}",
-                "-long", $"{v4}",
-                "-bool", "true",
-                "-float", $"{v5}",
-                "-double", $"{v6}",
-                "-decimal", $"{v7}"
+                "--string-value", $"{TestValues.STRING_VALUE}"
             };
 
-            var obj = new TypeObject();
+            var obj = new SimpleObject();
 
-            Magnet.Attract(obj, args);
+            Magnet.Attract(args, obj);
 
-            Assert.Equal(v1, obj.StringValue);
-            Assert.Equal(v2, obj.CharValue);
-            Assert.Equal(v3, obj.IntegerValue);
-            Assert.Equal(v4, obj.LongValue);
-            Assert.True(obj.BooleanValue);
-            Assert.Equal(v5, obj.FloatValue);
-            Assert.Equal(v6, obj.DoubleValue);
-            Assert.Equal(v7, obj.DecimalValue);
+            Assert.Equal(TestValues.STRING_VALUE, obj.StringValue);
         }
 
         [Fact]
-        public void ValueTypes()
+        public void Map_SimpleValue_With_Shortcut_Success()
         {
             var args = new string[] {
-                "--string-value",$"{v1}",
-                "--char-value",$"{v2}",
-                "--integer-value",$"{v3}",
-                "--long-value",$"{v4}",
-                "--boolean-value","true",
-                "--float-value",$"{v5}",
-                "--double-value",$"{v6}",
-                "--decimal-value",$"{v7}"
+                "--string-value", $"{TestValues.STRING_VALUE}"
             };
 
-            var obj = new TypeObject();
+            var obj = Magnet.Attract<SimpleObject>(args);
 
-            Magnet.Attract(obj, args);
-
-            Assert.Equal(v1, obj.StringValue);
-            Assert.Equal(v2, obj.CharValue);
-            Assert.Equal(v3, obj.IntegerValue);
-            Assert.Equal(v4, obj.LongValue);
-            Assert.True(obj.BooleanValue);
-            Assert.Equal(v5, obj.FloatValue);
-            Assert.Equal(v6, obj.DoubleValue);
-            Assert.Equal(v7, obj.DecimalValue);
+            Assert.Equal(TestValues.STRING_VALUE, obj.StringValue);
         }
 
         [Fact]
-        public void OptionSet()
+        public void Map_Value_By_Alias_Success()
         {
             var args = new string[] {
-                "--present-value",
-                "--raise-ex",
-                "--custom-point","[-10,15]"
+                "-string", $"{TestValues.STRING_VALUE}",
+                "-char", $"{TestValues.CHAR_VALUE}",
+                "-int", $"{TestValues.INT_VALUE}",
+                "-long", $"{TestValues.LONG_VALUE}",
+                "-bool", $"{TestValues.BOOLEAN_VALUE}",
+                "-float", $"{TestValues.FLOAT_VALUE}",
+                "-double", $"{TestValues.DOUBLE_VALUE}",
             };
 
-            var obj = new OptionSetObject();
+            var obj = new TypeValidation();
 
-            Magnet.Attract(obj, args);
+            Magnet.Attract(args, obj);
 
-            Assert.True(obj.PObject.PresentValue);
-            Assert.Equal(15, obj.CObject.Point.Y);
+            Assert.Equal(TestValues.STRING_VALUE, obj.StringValue);
+            Assert.Equal(TestValues.CHAR_VALUE, obj.CharValue);
+            Assert.Equal(TestValues.INT_VALUE, obj.IntegerValue);
+            Assert.Equal(TestValues.LONG_VALUE, obj.LongValue);
+            Assert.Equal(TestValues.BOOLEAN_VALUE, obj.BooleanValue);
+            Assert.Equal(TestValues.FLOAT_VALUE, obj.FloatValue);
+            Assert.Equal(TestValues.DOUBLE_VALUE, obj.DoubleValue);
+        }
+
+        [Fact]
+        public void Map_Value_Types_Success()
+        {
+            var args = new string[] {
+                "--string-value",$"{TestValues.STRING_VALUE}",
+                "--char-value",$"{TestValues.CHAR_VALUE}",
+                "--integer-value",$"{TestValues.INT_VALUE}",
+                "--long-value",$"{TestValues.LONG_VALUE}",
+                "--boolean-value",$"{TestValues.BOOLEAN_VALUE}",
+                "--float-value",$"{TestValues.FLOAT_VALUE}",
+                "--double-value",$"{TestValues.DOUBLE_VALUE}",
+            };
+
+            var obj = new TypeValidation();
+
+            Magnet.Attract(args, obj);
+
+            Assert.Equal(TestValues.STRING_VALUE, obj.StringValue);
+            Assert.Equal(TestValues.CHAR_VALUE, obj.CharValue);
+            Assert.Equal(TestValues.INT_VALUE, obj.IntegerValue);
+            Assert.Equal(TestValues.LONG_VALUE, obj.LongValue);
+            Assert.Equal(TestValues.BOOLEAN_VALUE, obj.BooleanValue);
+            Assert.Equal(TestValues.FLOAT_VALUE, obj.FloatValue);
+            Assert.Equal(TestValues.DOUBLE_VALUE, obj.DoubleValue);
+        }
+
+        [Fact]
+        public void Map_Complex_Object_Type_Success()
+        {
+            var args = new string[] {
+                "--label", TestValues.STRING_VALUE,
+                "-point",TestValues.POINT
+            };
+
+            var obj = new ComplexObject();
+
+            Magnet.Attract(args, obj);
+
+            Assert.Equal(TestValues.STRING_VALUE, obj.Label);
+            Assert.Equal(TestValues.POINT, obj.Point.ToString());
+        }
+
+        [Fact]
+        public void Map_Complex_Object_Type_Failed()
+        {
+            var args = new string[] {
+                "--label", TestValues.STRING_VALUE,
+                "-point","{15,15}"
+            };
+
+            var obj = new ComplexObject();
+
+            Assert.Throws<ArgumentFormatException>(delegate ()
+            {
+                try
+                {
+                    Magnet.Attract(args, obj);
+                }
+                catch (AggregateException ex)
+                {
+                    foreach (var e in ex.InnerExceptions)
+                    {
+                        throw e;
+                    }
+                }
+            });
+        }
+
+        [Fact]
+        public void Map_Custom_Symbol_Success()
+        {
+            var args = new string[] {
+                "$$label", TestValues.STRING_VALUE,
+                "$point","{15,15}"
+            };
+
+            var obj = new ComplexObject();
+
+            Assert.Throws<ArgumentFormatException>(delegate ()
+            {
+                try
+                {
+                    Magnet.Attract(args, obj, '$');
+                }
+                catch (AggregateException ex)
+                {
+                    foreach (var e in ex.InnerExceptions)
+                    {
+                        throw e;
+                    }
+                }
+            });
+        }
+        
+        [Magnetizable]
+        private class SimpleObject
+        {
+            [Argument("string-value")]
+            public string StringValue { get; set; }
+        }
+
+        [Magnetizable]
+        private class TypeValidation
+        {
+            [Argument("string-value", Alias = "string")]
+            public string StringValue { get; set; }
+
+            [Argument("char-value", Alias = "char")]
+            public char CharValue { get; set; }
+
+            [Argument("integer-value", Alias = "int")]
+            public int IntegerValue { get; set; }
+
+            [Argument("long-value", Alias = "long")]
+            public long LongValue { get; set; }
+
+            [Argument("boolean-value", Alias = "bool")]
+            public bool BooleanValue { get; set; }
+
+            [Argument("float-value", Alias = "float")]
+            public float FloatValue { get; set; }
+
+            [Argument("double-value", Alias = "double")]
+            public double DoubleValue { get; set; }
+
+            [Argument("decimal-value", Alias = "decimal")]
+            public decimal DecimalValue { get; set; }
+        }
+
+        [Magnetizable]
+        private class ComplexObject
+        {
+            [Argument("label"), IsRequired]
+            public string Label { get; set; }
+
+            [Argument("custom-point", Alias = "point"), IsRequired, Parser(typeof(PointParser))]
+            public Point Point { get; set; }
         }
     }
 }

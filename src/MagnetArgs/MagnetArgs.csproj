@@ -1,31 +1,44 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0;netcoreapp3.1;netstandard2.0;net40;net45;net48</TargetFrameworks>
+    <TargetFrameworks>net6.0;net5.0;netcoreapp3.1;netstandard2.0;net48</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.3.0.0</AssemblyVersion>
-    <FileVersion>0.3.0.0</FileVersion>
+    <AssemblyVersion>0.4.0.0</AssemblyVersion>
+    <FileVersion>0.4.0.0</FileVersion>
     <PackageId>MagnetArgs</PackageId>
     <Authors>Arturo Torres</Authors>
     <RepositoryUrl>https://github.com/arttorres/MagnetArgs</RepositoryUrl>
     <PackageProjectUrl>https://github.com/arttorres/MagnetArgs</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/arttorres/MagnetArgs/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>Git</RepositoryType>
-    <PackageTags>argument parser</PackageTags>
-    <Version>0.3</Version>
+    <PackageTags>argument parser console</PackageTags>
+    <Version>0.4</Version>
     <Copyright>Copyright ©2019 ArturoTorres</Copyright>
     <PackageIconUrl></PackageIconUrl>
-    <PackageReleaseNotes>Minor improvements.
+    <PackageReleaseNotes>New Attributes.
+New rule validation engine.
+Support of .Net 6.0
+End of support on .Net Framework 4.7.2 and previous.
+Minor improvements.
 </PackageReleaseNotes>
     <Description>Simple argument parser with magnetism.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>G:\ws_git\MagnetArgs\src\MagnetArgs\MagnetArgs.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>G:\ws_git\MagnetArgs\src\MagnetArgs\MagnetArgs.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

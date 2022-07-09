@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MagnetArgs.Rules;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text.RegularExpressions;
@@ -14,168 +15,119 @@ namespace MagnetArgs
         /// Magnetizes an object.
         /// </summary>
         /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
-        /// <param name="obj">The object to magnetize.</param>
         /// <param name="args">A list of arguments.</param>
         /// <param name="symbol">The symbol identifier for an option argument.</param>
-        public static void Attract<T>(T obj, string[] args, char symbol = '-')
+        /// <exception cref="AggregateException">Throw a collection of errors if argument errors found.</exception>
+        /// <exception cref="NotMagnetizableException">Throw if the object doesn't implement <see cref="MagnetizableAttribute"/>.</exception>
+        public static T Attract<T>(string[] args, char symbol = '-') where T : class, new()
         {
-            if (obj is IMagnetizable)
-            {
-                Attract((IMagnetizable)obj, GetArguments(args, symbol));
-            }
-            else
-            {
-                MapOptions(obj, args, symbol);
-            }
+            T obj = new T();
+
+            Attract(GetArguments(args, symbol), obj);
+
+            return obj;
         }
 
         /// <summary>
         /// Magnetizes an object.
         /// </summary>
         /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
+        /// <param name="args">A list of arguments.</param>
         /// <param name="obj">The object to magnetize.</param>
-        /// <param name="args">A collection of arguments.</param>
-        public static void Attract<T>(T obj, Dictionary<string, string> args) where T : IMagnetizable
-        {
-            var errors = new List<Exception>();
-
-            foreach (var propertyInfo in obj.GetType().GetProperties())
-            {
-                var attribute = GetAttribute<ChunkAttribute>(propertyInfo);
-
-                if (null != attribute)
-                {
-                    var isRequired = GetAttribute<IsRequiredAttribute>(propertyInfo);
-                    var ifPresent = GetAttribute<IfPresentAttribute>(propertyInfo);
-                    var @default = GetAttribute<DefaultAttribute>(propertyInfo);
-                    var @parser = GetAttribute<ParserAttribute>(propertyInfo);
-
-                    try
-                    {
-                        // find key
-                        string key = null;
-                        if (args.ContainsKey(attribute.Name.ToLowerInvariant()))
-                            key = attribute.Name;
-                        else if (args.ContainsKey(attribute.Alias.ToLowerInvariant()))
-                            key = attribute.Alias;
-
-                        // set value
-                        string value = null;
-                        if (key != null)
-                            value = args[key];
-
-                        if (isRequired != null && (key == null || string.IsNullOrEmpty(value)))
-                        {   // if required with no key in arguments or no value specified by user
-                            throw new IsRequiredException(string.Format("{0} is required and has no value.", attribute.Name));
-                        }
-
-                        // default value
-                        if ((key == null || string.IsNullOrEmpty(value)) && (@default != null && !string.IsNullOrEmpty(@default.Value)))
-                            value = @default.Value;
-
-                        if (ifPresent != null && key != null)
-                        {   // if present argument
-                            if (propertyInfo.PropertyType == typeof(bool))
-                                value = "true";
-                            else if (@default == null || string.IsNullOrEmpty(@default.Value))
-                                throw new IfPresentException("Non boolean attributes with IfPresent option require a default value.");
-                            else
-                                value = @default.Value;
-                        }
-
-                        if (value != null)
-                        {
-                            if (@parser == null)
-                            {   // value types
-                                propertyInfo.SetValue(
-                                    obj,
-                                    Convert.ChangeType(value, propertyInfo.PropertyType),
-                                    null
-                                );
-                            }
-                            else
-                            {   // custom types
-                                var instance = (IParser)Activator.CreateInstance(@parser.Type);
-                                propertyInfo.SetValue(
-                                    obj,
-                                    instance.Parse(value),
-                                    null
-                                );
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        errors.Add(ex);
-                    }
-                }
-            }
-
-            obj.Exceptions = errors;
-        }
-
-        #region OptionSet
-
-        /// <summary>
-        /// Identifies properties with <see cref="IMagnetizable"/> attributes.
-        /// </summary>
-        /// <param name="obj">The object to analyze.</param>
-        /// <param name="args">A list of arguments.</param>
         /// <param name="symbol">The symbol identifier for an option argument.</param>
-        private static void MapOptions(object obj, string[] args, char symbol = '-')
+        /// <exception cref="AggregateException">Throw a collection of errors if argument errors found.</exception>
+        /// <exception cref="NotMagnetizableException">Throw if the object doesn't implement <see cref="MagnetizableAttribute"/>.</exception>
+        public static void Attract<T>(string[] args, T obj, char symbol = '-') where T : class
         {
-            PropertyInfo[] properties = obj.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
-
-            for (int i = 0; i < properties.Length; i++)
-            {
-                PropertyInfo propertyInfo = properties[i];
-
-                if (typeof(IMagnetizable).IsAssignableFrom(propertyInfo.PropertyType))
-                {
-                    var o = (IMagnetizable)typeof(Magnet)
-                    .GetMethod("CreateOptionSet", BindingFlags.NonPublic | BindingFlags.Static, null, new[] { typeof(string[]), typeof(char) }, null)
-                    .MakeGenericMethod(propertyInfo.PropertyType)
-                    .Invoke(obj, new object[] { args, symbol });
-
-                    propertyInfo.SetValue(
-                        obj,
-                        o,
-                        null
-                    );
-                }
-            }
+            Attract(GetArguments(args, symbol), obj);
         }
 
         /// <summary>
-        /// Retrieves a magnetized object.
+        /// Magnetizes an object.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
         /// <param name="args">A list of arguments.</param>
-        /// <param name="symbol">The symbol identifier for an option argument.</param>
-        /// <returns></returns>
-        private static T CreateOptionSet<T>(string[] args, char symbol) where T : IMagnetizable, new()
+        /// <exception cref="AggregateException">Throw a collection of errors if argument errors found.</exception>
+        /// <exception cref="NotMagnetizableException">Throw if the object doesn't implement <see cref="MagnetizableAttribute"/>.</exception>
+        public static T Attract<T>(Dictionary<string, string> args) where T : class
         {
-            return CreateOptionSet<T>(GetArguments(args, symbol));
-        }
+            T obj = default;
 
-        /// <summary>
-        /// Retrieves a magnetized object.
-        /// </summary>
-        /// <typeparam name="T">The type of option attribute.</typeparam>
-        /// <param name="args">A list of arguments.</param>
-        /// <returns></returns>
-        public static T CreateOptionSet<T>(Dictionary<string, string> args) where T : IMagnetizable, new()
-        {
-            T obj = new T();
-
-            Attract<T>(obj, args);
+            Attract<T>(args, obj);
 
             return obj;
         }
 
-        #endregion
+        /// <summary>
+        /// Magnetizes an object.
+        /// </summary>
+        /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
+        /// <param name="args">A list of arguments.</param>
+        /// <param name="obj">The object to magnetize.</param>
+        /// <exception cref="AggregateException">Throw a collection of errors if argument errors found.</exception>
+        /// <exception cref="NotMagnetizableException">Throw if the object doesn't implement <see cref="MagnetizableAttribute"/>.</exception>
+        public static void Attract<T>(Dictionary<string, string> args, T obj) where T : class
+        {
+            if (obj.ContainsAttribute<MagnetizableAttribute>())
+            {
+                var errors = new List<Exception>();
 
-        #region Tools
+                var rules = new MagnetRules();
+                var properties = obj.GetType().GetProperties();
+
+                foreach (var property in properties)
+                {
+                    MagnetProperty mProperty = new MagnetProperty(property, args); ;
+
+                    if (null != mProperty.Attribute)
+                    {
+                        try
+                        {
+                            if (mProperty.ExistNamed && !ExistArgument(mProperty.IfPresentAttribute.ArgumentName, properties))
+                                throw new ArgumentNotFoundException(mProperty.IfPresentAttribute.ArgumentName);
+
+                            var result = rules.Eval(mProperty.Attribute.Name, mProperty);
+
+                            var action = result.Item1;
+                            var source = result.Item2;
+
+                            switch (action)
+                            {
+                                case MagnetAction.SetNative:
+                                case MagnetAction.SetTyped:
+                                    Console.WriteLine("Action Taked: Set from {1}, Source: {0}", source.ToString(), action);
+                                    SetValue(obj, GetValueFromSource(source, mProperty), mProperty);
+                                    break;
+                                case MagnetAction.SetTrue:
+                                    Console.WriteLine("Action Taked: Set as True, Source: {0}", source.ToString());
+                                    SetValue(obj, bool.TrueString, mProperty);
+                                    break;
+                                case MagnetAction.Ignore:
+                                    Console.WriteLine("Action Taked: Ignore", action.ToString());
+                                    break;
+                            }
+                        }
+                        catch (FormatException)
+                        {
+                            errors.Add(new ArgumentFormatException(mProperty.Attribute.Name));
+                        }
+                        catch (Exception ex)
+                        {
+                            errors.Add(ex);
+                        }
+                    }
+                }
+
+                if (errors.Count > 0)
+                {
+                    throw new AggregateException(errors);
+                }
+            }
+            else
+            {
+                throw new NotMagnetizableException(obj.GetType().ToString());
+            }
+        }
 
         /// <summary>
         /// Retrieves an instance of Dictionary with arguments and values.
@@ -205,30 +157,78 @@ namespace MagnetArgs
         }
 
         /// <summary>
-        /// Retrieves an attribute from a MemberInfo instance.
+        /// Sets a value to an object property.
         /// </summary>
-        /// <typeparam name="T">The type of return attribute.</typeparam>
-        /// <param name="member">An instance of <see cref="MemberInfo"/>.</param>
-        /// <returns></returns>
-        private static T GetAttribute<T>(MemberInfo member) where T : Attribute
+        /// <typeparam name="T">The type of the class object to magnetize.</typeparam>
+        /// <param name="obj">The object to set value.</param>
+        /// <param name="value">The value to be set.</param>
+        /// <param name="property">An instance of <see cref="MagnetProperty"/>.</param>
+        /// <exception cref="MissingParserException"></exception>
+        private static void SetValue<T>(T obj, string value, MagnetProperty property) where T : class
         {
-            object[] attributes = member.GetCustomAttributes(true);
-
-            T result;
-            for (int i = 0; i < attributes.Length; i++)
+            if (value != null)
             {
-                object obj = attributes[i];
-
-                if (obj is T)
-                {
-                    result = (T)((object)obj);
-                    return result;
+                if (property.ParserAttribute == null)
+                {   // primitive types
+                    property.Property.SetValue(
+                        obj,
+                        Convert.ChangeType(value, property.Property.PropertyType),
+                        null
+                    );
+                }
+                else
+                {   // custom types
+                    if (typeof(IParser).IsAssignableFrom(property.ParserAttribute.Type))
+                    {
+                        var instance = (IParser)Activator.CreateInstance(property.ParserAttribute.Type);
+                        property.Property.SetValue(
+                            obj,
+                            instance.Parse(value),
+                            null
+                        );
+                    }
+                    else
+                    {
+                        throw new MissingParserException(property.Attribute.Name, $"Class {property.ParserAttribute.Type} is not a valid parser.");
+                    }
                 }
             }
-
-            return default(T);
         }
 
-        #endregion
+        /// <summary>
+        /// Gets a value from the attribues depending of an specific source.
+        /// </summary>
+        /// <param name="source">The source of the value.</param>
+        /// <param name="property">The property where get the value.</param>
+        /// <returns>The value.</returns>
+        private static string GetValueFromSource(Source source, MagnetProperty property)
+        {
+            switch (source)
+            {
+                case Source.Input:
+                    return property.Input.Value;
+                case Source.Default:
+                    return property.DefaultAttribute.Value;
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Validates if an argument has been implemented as a <see cref="ArgumentAttribute"/>.
+        /// </summary>
+        /// <param name="argumentName">The argument to validate.</param>
+        /// <param name="properties">The list of properties to look for.</param>
+        /// <returns></returns>
+        private static bool ExistArgument(string argumentName, IEnumerable<PropertyInfo> properties)
+        {
+            foreach (PropertyInfo property in properties)
+            {
+                if (argumentName.Equals(property.GetAttribute<ArgumentAttribute>().Name))
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
