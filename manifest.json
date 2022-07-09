@@ -1,0 +1,383 @@
+{
+  "homepages": [],
+  "source_base_path": "E:/github/MagnetArgs.Docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "PzCBaJGK2MicMjq3DahzAULZylZegXXZD8GxH/Wqv08="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.ArgumentAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.ArgumentAttribute.html",
+          "hash": "wWxS1zg9f0wi8gxPReFfnUhHiW7CHc6m1sgk6QI/y7c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.ArgumentFormatException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.ArgumentFormatException.html",
+          "hash": "UyODzXGaCL8r6X8GEj0SmKqFSiP3UYBoAmW9h6MpXXk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.ArgumentNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.ArgumentNotFoundException.html",
+          "hash": "bsmxjeQmN2bA2pW/pb7xhUjeAPpnhKfMm0bQ7uUB92o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.DefaultAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.DefaultAttribute.html",
+          "hash": "4X5WU2Z7Mnd0wD4xxpPi3Vp90Jbz2JHJ86SSErwN47E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.DefaultIsMissingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.DefaultIsMissingException.html",
+          "hash": "CqGC3yYOkVGqLqY1v3r4QWokeI4DV0QPD2HGguZfCsM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.IParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.IParser.html",
+          "hash": "hjvOIfcXKBVkpmRJNctAYyebctESvH2UfjVYWGf3G3c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.IfPresentAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.IfPresentAttribute.html",
+          "hash": "2dut5kz784OCMp08lj/6B9iN7WzXo0bmvz4Dzv51/E8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.IsRequiredAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.IsRequiredAttribute.html",
+          "hash": "j+mZ4ErurDkvyfJ6u5cIF1X/VXTRK0iWTWV3VTpwYfY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.Magnet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.Magnet.html",
+          "hash": "Y0cP1TpBC/NS1UmMamwrbhm5maLHg93Se+R/p6E8wxg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.MagnetException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.MagnetException.html",
+          "hash": "VcTzl0BRTz/yzMh+TF84sfF9Z4viA8C1R6UvdVedD/I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.MagnetizableAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.MagnetizableAttribute.html",
+          "hash": "kL48Wp0nG01MU98mTowuaB6ajv8eL8CRfUtsOSP4csY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.MissingParserException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.MissingParserException.html",
+          "hash": "C3OmMoy1p00UTEFJrVXFRTY45GzDtlj3qozZ8MwCAJ4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.NotMagnetizableException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.NotMagnetizableException.html",
+          "hash": "CjT/tf02+YtdxZbnlLkM48GYbzRnvc1gJwU57BU9cYs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.ParserAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.ParserAttribute.html",
+          "hash": "7XIACxifmD1z44F5qzbu/KvRDQv1IoIDReSRGjLXeRM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.Parsers.DateTimeParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.Parsers.DateTimeParser.html",
+          "hash": "AZ8ZMvsTq4xeO1GCHd3j0m48G5JkYOXJaBQlvgLSLM4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.Parsers.DecimalParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.Parsers.DecimalParser.html",
+          "hash": "1kKYxdPG9PFNJstK0Rw+plpPXrqySQ8LAdeOKFxqMQQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.Parsers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.Parsers.html",
+          "hash": "084f4av6/dZaTySR/UN66r36gegACFFyQGt+cqFa1NA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MagnetArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MagnetArgs.html",
+          "hash": "LdUVIM1CemmuBNARa5+vGy/RoK669A7XUkbWmy+Rfn4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "S6HH25ziEUKWJk9c1SDkf4tv9pt+s1Em+CanR3D4XJQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "HGAo6dpOMAbjnFDKTKlHa7Kmco37D45biXHyGfCnwkM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "aOy2sep6UZV26oOkupcIBXuDgHQsCVz7R3i+I6vFl6Y="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "J2Ucrckdx4dg4IZOx6kwfAACTTn8pqVwhGnYicz3XjE="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "logo.svg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "WSuRrYiGwKKMbtdG9z8W9fXmLoCyTnGg9AxbPKLXm2Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 4
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 18,
+          "skipped_file_count": 10
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

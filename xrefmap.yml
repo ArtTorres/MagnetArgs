@@ -1,0 +1,580 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: MagnetArgs
+  name: MagnetArgs
+  href: api/MagnetArgs.html
+  commentId: N:MagnetArgs
+  fullName: MagnetArgs
+  nameWithType: MagnetArgs
+- uid: MagnetArgs.ArgumentAttribute
+  name: ArgumentAttribute
+  href: api/MagnetArgs.ArgumentAttribute.html
+  commentId: T:MagnetArgs.ArgumentAttribute
+  fullName: MagnetArgs.ArgumentAttribute
+  nameWithType: ArgumentAttribute
+- uid: MagnetArgs.ArgumentAttribute.#ctor(System.String)
+  name: ArgumentAttribute(String)
+  href: api/MagnetArgs.ArgumentAttribute.html#MagnetArgs_ArgumentAttribute__ctor_System_String_
+  commentId: M:MagnetArgs.ArgumentAttribute.#ctor(System.String)
+  fullName: MagnetArgs.ArgumentAttribute.ArgumentAttribute(System.String)
+  nameWithType: ArgumentAttribute.ArgumentAttribute(String)
+- uid: MagnetArgs.ArgumentAttribute.#ctor*
+  name: ArgumentAttribute
+  href: api/MagnetArgs.ArgumentAttribute.html#MagnetArgs_ArgumentAttribute__ctor_
+  commentId: Overload:MagnetArgs.ArgumentAttribute.#ctor
+  isSpec: "True"
+  fullName: MagnetArgs.ArgumentAttribute.ArgumentAttribute
+  nameWithType: ArgumentAttribute.ArgumentAttribute
+- uid: MagnetArgs.ArgumentAttribute.Alias
+  name: Alias
+  href: api/MagnetArgs.ArgumentAttribute.html#MagnetArgs_ArgumentAttribute_Alias
+  commentId: P:MagnetArgs.ArgumentAttribute.Alias
+  fullName: MagnetArgs.ArgumentAttribute.Alias
+  nameWithType: ArgumentAttribute.Alias
+- uid: MagnetArgs.ArgumentAttribute.Alias*
+  name: Alias
+  href: api/MagnetArgs.ArgumentAttribute.html#MagnetArgs_ArgumentAttribute_Alias_
+  commentId: Overload:MagnetArgs.ArgumentAttribute.Alias
+  isSpec: "True"
+  fullName: MagnetArgs.ArgumentAttribute.Alias
+  nameWithType: ArgumentAttribute.Alias
+- uid: MagnetArgs.ArgumentAttribute.Name
+  name: Name
+  href: api/MagnetArgs.ArgumentAttribute.html#MagnetArgs_ArgumentAttribute_Name
+  commentId: P:MagnetArgs.ArgumentAttribute.Name
+  fullName: MagnetArgs.ArgumentAttribute.Name
+  nameWithType: ArgumentAttribute.Name
+- uid: MagnetArgs.ArgumentAttribute.Name*
+  name: Name
+  href: api/MagnetArgs.ArgumentAttribute.html#MagnetArgs_ArgumentAttribute_Name_
+  commentId: Overload:MagnetArgs.ArgumentAttribute.Name
+  isSpec: "True"
+  fullName: MagnetArgs.ArgumentAttribute.Name
+  nameWithType: ArgumentAttribute.Name
+- uid: MagnetArgs.ArgumentFormatException
+  name: ArgumentFormatException
+  href: api/MagnetArgs.ArgumentFormatException.html
+  commentId: T:MagnetArgs.ArgumentFormatException
+  fullName: MagnetArgs.ArgumentFormatException
+  nameWithType: ArgumentFormatException
+- uid: MagnetArgs.ArgumentFormatException.#ctor(System.String)
+  name: ArgumentFormatException(String)
+  href: api/MagnetArgs.ArgumentFormatException.html#MagnetArgs_ArgumentFormatException__ctor_System_String_
+  commentId: M:MagnetArgs.ArgumentFormatException.#ctor(System.String)
+  fullName: MagnetArgs.ArgumentFormatException.ArgumentFormatException(System.String)
+  nameWithType: ArgumentFormatException.ArgumentFormatException(String)
+- uid: MagnetArgs.ArgumentFormatException.#ctor(System.String,System.String)
+  name: ArgumentFormatException(String, String)
+  href: api/MagnetArgs.ArgumentFormatException.html#MagnetArgs_ArgumentFormatException__ctor_System_String_System_String_
+  commentId: M:MagnetArgs.ArgumentFormatException.#ctor(System.String,System.String)
+  fullName: MagnetArgs.ArgumentFormatException.ArgumentFormatException(System.String, System.String)
+  nameWithType: ArgumentFormatException.ArgumentFormatException(String, String)
+- uid: MagnetArgs.ArgumentFormatException.#ctor(System.String,System.String,System.Exception)
+  name: ArgumentFormatException(String, String, Exception)
+  href: api/MagnetArgs.ArgumentFormatException.html#MagnetArgs_ArgumentFormatException__ctor_System_String_System_String_System_Exception_
+  commentId: M:MagnetArgs.ArgumentFormatException.#ctor(System.String,System.String,System.Exception)
+  fullName: MagnetArgs.ArgumentFormatException.ArgumentFormatException(System.String, System.String, System.Exception)
+  nameWithType: ArgumentFormatException.ArgumentFormatException(String, String, Exception)
+- uid: MagnetArgs.ArgumentFormatException.#ctor*
+  name: ArgumentFormatException
+  href: api/MagnetArgs.ArgumentFormatException.html#MagnetArgs_ArgumentFormatException__ctor_
+  commentId: Overload:MagnetArgs.ArgumentFormatException.#ctor
+  isSpec: "True"
+  fullName: MagnetArgs.ArgumentFormatException.ArgumentFormatException
+  nameWithType: ArgumentFormatException.ArgumentFormatException
+- uid: MagnetArgs.ArgumentNotFoundException
+  name: ArgumentNotFoundException
+  href: api/MagnetArgs.ArgumentNotFoundException.html
+  commentId: T:MagnetArgs.ArgumentNotFoundException
+  fullName: MagnetArgs.ArgumentNotFoundException
+  nameWithType: ArgumentNotFoundException
+- uid: MagnetArgs.ArgumentNotFoundException.#ctor(System.String)
+  name: ArgumentNotFoundException(String)
+  href: api/MagnetArgs.ArgumentNotFoundException.html#MagnetArgs_ArgumentNotFoundException__ctor_System_String_
+  commentId: M:MagnetArgs.ArgumentNotFoundException.#ctor(System.String)
+  fullName: MagnetArgs.ArgumentNotFoundException.ArgumentNotFoundException(System.String)
+  nameWithType: ArgumentNotFoundException.ArgumentNotFoundException(String)
+- uid: MagnetArgs.ArgumentNotFoundException.#ctor(System.String,System.String)
+  name: ArgumentNotFoundException(String, String)
+  href: api/MagnetArgs.ArgumentNotFoundException.html#MagnetArgs_ArgumentNotFoundException__ctor_System_String_System_String_
+  commentId: M:MagnetArgs.ArgumentNotFoundException.#ctor(System.String,System.String)
+  fullName: MagnetArgs.ArgumentNotFoundException.ArgumentNotFoundException(System.String, System.String)
+  nameWithType: ArgumentNotFoundException.ArgumentNotFoundException(String, String)
+- uid: MagnetArgs.ArgumentNotFoundException.#ctor(System.String,System.String,System.Exception)
+  name: ArgumentNotFoundException(String, String, Exception)
+  href: api/MagnetArgs.ArgumentNotFoundException.html#MagnetArgs_ArgumentNotFoundException__ctor_System_String_System_String_System_Exception_
+  commentId: M:MagnetArgs.ArgumentNotFoundException.#ctor(System.String,System.String,System.Exception)
+  fullName: MagnetArgs.ArgumentNotFoundException.ArgumentNotFoundException(System.String, System.String, System.Exception)
+  nameWithType: ArgumentNotFoundException.ArgumentNotFoundException(String, String, Exception)
+- uid: MagnetArgs.ArgumentNotFoundException.#ctor*
+  name: ArgumentNotFoundException
+  href: api/MagnetArgs.ArgumentNotFoundException.html#MagnetArgs_ArgumentNotFoundException__ctor_
+  commentId: Overload:MagnetArgs.ArgumentNotFoundException.#ctor
+  isSpec: "True"
+  fullName: MagnetArgs.ArgumentNotFoundException.ArgumentNotFoundException
+  nameWithType: ArgumentNotFoundException.ArgumentNotFoundException
+- uid: MagnetArgs.DefaultAttribute
+  name: DefaultAttribute
+  href: api/MagnetArgs.DefaultAttribute.html
+  commentId: T:MagnetArgs.DefaultAttribute
+  fullName: MagnetArgs.DefaultAttribute
+  nameWithType: DefaultAttribute
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.Boolean)
+  name: DefaultAttribute(Boolean)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_Boolean_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.Boolean)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.Boolean)
+  nameWithType: DefaultAttribute.DefaultAttribute(Boolean)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.Byte)
+  name: DefaultAttribute(Byte)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_Byte_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.Byte)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.Byte)
+  nameWithType: DefaultAttribute.DefaultAttribute(Byte)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.Char)
+  name: DefaultAttribute(Char)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_Char_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.Char)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.Char)
+  nameWithType: DefaultAttribute.DefaultAttribute(Char)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.Double)
+  name: DefaultAttribute(Double)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_Double_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.Double)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.Double)
+  nameWithType: DefaultAttribute.DefaultAttribute(Double)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.Int16)
+  name: DefaultAttribute(Int16)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_Int16_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.Int16)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.Int16)
+  nameWithType: DefaultAttribute.DefaultAttribute(Int16)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.Int32)
+  name: DefaultAttribute(Int32)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_Int32_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.Int32)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.Int32)
+  nameWithType: DefaultAttribute.DefaultAttribute(Int32)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.Int64)
+  name: DefaultAttribute(Int64)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_Int64_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.Int64)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.Int64)
+  nameWithType: DefaultAttribute.DefaultAttribute(Int64)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.SByte)
+  name: DefaultAttribute(SByte)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_SByte_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.SByte)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.SByte)
+  nameWithType: DefaultAttribute.DefaultAttribute(SByte)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.Single)
+  name: DefaultAttribute(Single)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_Single_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.Single)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.Single)
+  nameWithType: DefaultAttribute.DefaultAttribute(Single)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.String)
+  name: DefaultAttribute(String)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_String_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.String)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.String)
+  nameWithType: DefaultAttribute.DefaultAttribute(String)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.UInt16)
+  name: DefaultAttribute(UInt16)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_UInt16_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.UInt16)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.UInt16)
+  nameWithType: DefaultAttribute.DefaultAttribute(UInt16)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.UInt32)
+  name: DefaultAttribute(UInt32)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_UInt32_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.UInt32)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.UInt32)
+  nameWithType: DefaultAttribute.DefaultAttribute(UInt32)
+- uid: MagnetArgs.DefaultAttribute.#ctor(System.UInt64)
+  name: DefaultAttribute(UInt64)
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_System_UInt64_
+  commentId: M:MagnetArgs.DefaultAttribute.#ctor(System.UInt64)
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute(System.UInt64)
+  nameWithType: DefaultAttribute.DefaultAttribute(UInt64)
+- uid: MagnetArgs.DefaultAttribute.#ctor*
+  name: DefaultAttribute
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute__ctor_
+  commentId: Overload:MagnetArgs.DefaultAttribute.#ctor
+  isSpec: "True"
+  fullName: MagnetArgs.DefaultAttribute.DefaultAttribute
+  nameWithType: DefaultAttribute.DefaultAttribute
+- uid: MagnetArgs.DefaultAttribute.Value
+  name: Value
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute_Value
+  commentId: P:MagnetArgs.DefaultAttribute.Value
+  fullName: MagnetArgs.DefaultAttribute.Value
+  nameWithType: DefaultAttribute.Value
+- uid: MagnetArgs.DefaultAttribute.Value*
+  name: Value
+  href: api/MagnetArgs.DefaultAttribute.html#MagnetArgs_DefaultAttribute_Value_
+  commentId: Overload:MagnetArgs.DefaultAttribute.Value
+  isSpec: "True"
+  fullName: MagnetArgs.DefaultAttribute.Value
+  nameWithType: DefaultAttribute.Value
+- uid: MagnetArgs.DefaultIsMissingException
+  name: DefaultIsMissingException
+  href: api/MagnetArgs.DefaultIsMissingException.html
+  commentId: T:MagnetArgs.DefaultIsMissingException
+  fullName: MagnetArgs.DefaultIsMissingException
+  nameWithType: DefaultIsMissingException
+- uid: MagnetArgs.DefaultIsMissingException.#ctor(System.String)
+  name: DefaultIsMissingException(String)
+  href: api/MagnetArgs.DefaultIsMissingException.html#MagnetArgs_DefaultIsMissingException__ctor_System_String_
+  commentId: M:MagnetArgs.DefaultIsMissingException.#ctor(System.String)
+  fullName: MagnetArgs.DefaultIsMissingException.DefaultIsMissingException(System.String)
+  nameWithType: DefaultIsMissingException.DefaultIsMissingException(String)
+- uid: MagnetArgs.DefaultIsMissingException.#ctor(System.String,System.String)
+  name: DefaultIsMissingException(String, String)
+  href: api/MagnetArgs.DefaultIsMissingException.html#MagnetArgs_DefaultIsMissingException__ctor_System_String_System_String_
+  commentId: M:MagnetArgs.DefaultIsMissingException.#ctor(System.String,System.String)
+  fullName: MagnetArgs.DefaultIsMissingException.DefaultIsMissingException(System.String, System.String)
+  nameWithType: DefaultIsMissingException.DefaultIsMissingException(String, String)
+- uid: MagnetArgs.DefaultIsMissingException.#ctor(System.String,System.String,System.Exception)
+  name: DefaultIsMissingException(String, String, Exception)
+  href: api/MagnetArgs.DefaultIsMissingException.html#MagnetArgs_DefaultIsMissingException__ctor_System_String_System_String_System_Exception_
+  commentId: M:MagnetArgs.DefaultIsMissingException.#ctor(System.String,System.String,System.Exception)
+  fullName: MagnetArgs.DefaultIsMissingException.DefaultIsMissingException(System.String, System.String, System.Exception)
+  nameWithType: DefaultIsMissingException.DefaultIsMissingException(String, String, Exception)
+- uid: MagnetArgs.DefaultIsMissingException.#ctor*
+  name: DefaultIsMissingException
+  href: api/MagnetArgs.DefaultIsMissingException.html#MagnetArgs_DefaultIsMissingException__ctor_
+  commentId: Overload:MagnetArgs.DefaultIsMissingException.#ctor
+  isSpec: "True"
+  fullName: MagnetArgs.DefaultIsMissingException.DefaultIsMissingException
+  nameWithType: DefaultIsMissingException.DefaultIsMissingException
+- uid: MagnetArgs.IfPresentAttribute
+  name: IfPresentAttribute
+  href: api/MagnetArgs.IfPresentAttribute.html
+  commentId: T:MagnetArgs.IfPresentAttribute
+  fullName: MagnetArgs.IfPresentAttribute
+  nameWithType: IfPresentAttribute
+- uid: MagnetArgs.IfPresentAttribute.#ctor
+  name: IfPresentAttribute()
+  href: api/MagnetArgs.IfPresentAttribute.html#MagnetArgs_IfPresentAttribute__ctor
+  commentId: M:MagnetArgs.IfPresentAttribute.#ctor
+  fullName: MagnetArgs.IfPresentAttribute.IfPresentAttribute()
+  nameWithType: IfPresentAttribute.IfPresentAttribute()
+- uid: MagnetArgs.IfPresentAttribute.#ctor(System.String)
+  name: IfPresentAttribute(String)
+  href: api/MagnetArgs.IfPresentAttribute.html#MagnetArgs_IfPresentAttribute__ctor_System_String_
+  commentId: M:MagnetArgs.IfPresentAttribute.#ctor(System.String)
+  fullName: MagnetArgs.IfPresentAttribute.IfPresentAttribute(System.String)
+  nameWithType: IfPresentAttribute.IfPresentAttribute(String)
+- uid: MagnetArgs.IfPresentAttribute.#ctor*
+  name: IfPresentAttribute
+  href: api/MagnetArgs.IfPresentAttribute.html#MagnetArgs_IfPresentAttribute__ctor_
+  commentId: Overload:MagnetArgs.IfPresentAttribute.#ctor
+  isSpec: "True"
+  fullName: MagnetArgs.IfPresentAttribute.IfPresentAttribute
+  nameWithType: IfPresentAttribute.IfPresentAttribute
+- uid: MagnetArgs.IfPresentAttribute.ArgumentName
+  name: ArgumentName
+  href: api/MagnetArgs.IfPresentAttribute.html#MagnetArgs_IfPresentAttribute_ArgumentName
+  commentId: P:MagnetArgs.IfPresentAttribute.ArgumentName
+  fullName: MagnetArgs.IfPresentAttribute.ArgumentName
+  nameWithType: IfPresentAttribute.ArgumentName
+- uid: MagnetArgs.IfPresentAttribute.ArgumentName*
+  name: ArgumentName
+  href: api/MagnetArgs.IfPresentAttribute.html#MagnetArgs_IfPresentAttribute_ArgumentName_
+  commentId: Overload:MagnetArgs.IfPresentAttribute.ArgumentName
+  isSpec: "True"
+  fullName: MagnetArgs.IfPresentAttribute.ArgumentName
+  nameWithType: IfPresentAttribute.ArgumentName
+- uid: MagnetArgs.IParser
+  name: IParser
+  href: api/MagnetArgs.IParser.html
+  commentId: T:MagnetArgs.IParser
+  fullName: MagnetArgs.IParser
+  nameWithType: IParser
+- uid: MagnetArgs.IParser.Parse(System.String)
+  name: Parse(String)
+  href: api/MagnetArgs.IParser.html#MagnetArgs_IParser_Parse_System_String_
+  commentId: M:MagnetArgs.IParser.Parse(System.String)
+  fullName: MagnetArgs.IParser.Parse(System.String)
+  nameWithType: IParser.Parse(String)
+- uid: MagnetArgs.IParser.Parse*
+  name: Parse
+  href: api/MagnetArgs.IParser.html#MagnetArgs_IParser_Parse_
+  commentId: Overload:MagnetArgs.IParser.Parse
+  isSpec: "True"
+  fullName: MagnetArgs.IParser.Parse
+  nameWithType: IParser.Parse
+- uid: MagnetArgs.IsRequiredAttribute
+  name: IsRequiredAttribute
+  href: api/MagnetArgs.IsRequiredAttribute.html
+  commentId: T:MagnetArgs.IsRequiredAttribute
+  fullName: MagnetArgs.IsRequiredAttribute
+  nameWithType: IsRequiredAttribute
+- uid: MagnetArgs.IsRequiredAttribute.#ctor
+  name: IsRequiredAttribute()
+  href: api/MagnetArgs.IsRequiredAttribute.html#MagnetArgs_IsRequiredAttribute__ctor
+  commentId: M:MagnetArgs.IsRequiredAttribute.#ctor
+  fullName: MagnetArgs.IsRequiredAttribute.IsRequiredAttribute()
+  nameWithType: IsRequiredAttribute.IsRequiredAttribute()
+- uid: MagnetArgs.IsRequiredAttribute.#ctor*
+  name: IsRequiredAttribute
+  href: api/MagnetArgs.IsRequiredAttribute.html#MagnetArgs_IsRequiredAttribute__ctor_
+  commentId: Overload:MagnetArgs.IsRequiredAttribute.#ctor
+  isSpec: "True"
+  fullName: MagnetArgs.IsRequiredAttribute.IsRequiredAttribute
+  nameWithType: IsRequiredAttribute.IsRequiredAttribute
+- uid: MagnetArgs.Magnet
+  name: Magnet
+  href: api/MagnetArgs.Magnet.html
+  commentId: T:MagnetArgs.Magnet
+  fullName: MagnetArgs.Magnet
+  nameWithType: Magnet
+- uid: MagnetArgs.Magnet.Attract*
+  name: Attract
+  href: api/MagnetArgs.Magnet.html#MagnetArgs_Magnet_Attract_
+  commentId: Overload:MagnetArgs.Magnet.Attract
+  isSpec: "True"
+  fullName: MagnetArgs.Magnet.Attract
+  nameWithType: Magnet.Attract
+- uid: MagnetArgs.Magnet.Attract``1(System.Collections.Generic.Dictionary{System.String,System.String})
+  name: Attract<T>(Dictionary<String, String>)
+  href: api/MagnetArgs.Magnet.html#MagnetArgs_Magnet_Attract__1_System_Collections_Generic_Dictionary_System_String_System_String__
+  commentId: M:MagnetArgs.Magnet.Attract``1(System.Collections.Generic.Dictionary{System.String,System.String})
+  name.vb: Attract(Of T)(Dictionary(Of String, String))
+  fullName: MagnetArgs.Magnet.Attract<T>(System.Collections.Generic.Dictionary<System.String, System.String>)
+  fullName.vb: MagnetArgs.Magnet.Attract(Of T)(System.Collections.Generic.Dictionary(Of System.String, System.String))
+  nameWithType: Magnet.Attract<T>(Dictionary<String, String>)
+  nameWithType.vb: Magnet.Attract(Of T)(Dictionary(Of String, String))
+- uid: MagnetArgs.Magnet.Attract``1(System.Collections.Generic.Dictionary{System.String,System.String},``0)
+  name: Attract<T>(Dictionary<String, String>, T)
+  href: api/MagnetArgs.Magnet.html#MagnetArgs_Magnet_Attract__1_System_Collections_Generic_Dictionary_System_String_System_String____0_
+  commentId: M:MagnetArgs.Magnet.Attract``1(System.Collections.Generic.Dictionary{System.String,System.String},``0)
+  name.vb: Attract(Of T)(Dictionary(Of String, String), T)
+  fullName: MagnetArgs.Magnet.Attract<T>(System.Collections.Generic.Dictionary<System.String, System.String>, T)
+  fullName.vb: MagnetArgs.Magnet.Attract(Of T)(System.Collections.Generic.Dictionary(Of System.String, System.String), T)
+  nameWithType: Magnet.Attract<T>(Dictionary<String, String>, T)
+  nameWithType.vb: Magnet.Attract(Of T)(Dictionary(Of String, String), T)
+- uid: MagnetArgs.Magnet.Attract``1(System.String[],``0,System.Char)
+  name: Attract<T>(String[], T, Char)
+  href: api/MagnetArgs.Magnet.html#MagnetArgs_Magnet_Attract__1_System_String_____0_System_Char_
+  commentId: M:MagnetArgs.Magnet.Attract``1(System.String[],``0,System.Char)
+  name.vb: Attract(Of T)(String(), T, Char)
+  fullName: MagnetArgs.Magnet.Attract<T>(System.String[], T, System.Char)
+  fullName.vb: MagnetArgs.Magnet.Attract(Of T)(System.String(), T, System.Char)
+  nameWithType: Magnet.Attract<T>(String[], T, Char)
+  nameWithType.vb: Magnet.Attract(Of T)(String(), T, Char)
+- uid: MagnetArgs.Magnet.Attract``1(System.String[],System.Char)
+  name: Attract<T>(String[], Char)
+  href: api/MagnetArgs.Magnet.html#MagnetArgs_Magnet_Attract__1_System_String___System_Char_
+  commentId: M:MagnetArgs.Magnet.Attract``1(System.String[],System.Char)
+  name.vb: Attract(Of T)(String(), Char)
+  fullName: MagnetArgs.Magnet.Attract<T>(System.String[], System.Char)
+  fullName.vb: MagnetArgs.Magnet.Attract(Of T)(System.String(), System.Char)
+  nameWithType: Magnet.Attract<T>(String[], Char)
+  nameWithType.vb: Magnet.Attract(Of T)(String(), Char)
+- uid: MagnetArgs.Magnet.GetArguments(System.String[],System.Char)
+  name: GetArguments(String[], Char)
+  href: api/MagnetArgs.Magnet.html#MagnetArgs_Magnet_GetArguments_System_String___System_Char_
+  commentId: M:MagnetArgs.Magnet.GetArguments(System.String[],System.Char)
+  name.vb: GetArguments(String(), Char)
+  fullName: MagnetArgs.Magnet.GetArguments(System.String[], System.Char)
+  fullName.vb: MagnetArgs.Magnet.GetArguments(System.String(), System.Char)
+  nameWithType: Magnet.GetArguments(String[], Char)
+  nameWithType.vb: Magnet.GetArguments(String(), Char)
+- uid: MagnetArgs.Magnet.GetArguments*
+  name: GetArguments
+  href: api/MagnetArgs.Magnet.html#MagnetArgs_Magnet_GetArguments_
+  commentId: Overload:MagnetArgs.Magnet.GetArguments
+  isSpec: "True"
+  fullName: MagnetArgs.Magnet.GetArguments
+  nameWithType: Magnet.GetArguments
+- uid: MagnetArgs.MagnetException
+  name: MagnetException
+  href: api/MagnetArgs.MagnetException.html
+  commentId: T:MagnetArgs.MagnetException
+  fullName: MagnetArgs.MagnetException
+  nameWithType: MagnetException
+- uid: MagnetArgs.MagnetException.#ctor(System.String)
+  name: MagnetException(String)
+  href: api/MagnetArgs.MagnetException.html#MagnetArgs_MagnetException__ctor_System_String_
+  commentId: M:MagnetArgs.MagnetException.#ctor(System.String)
+  fullName: MagnetArgs.MagnetException.MagnetException(System.String)
+  nameWithType: MagnetException.MagnetException(String)
+- uid: MagnetArgs.MagnetException.#ctor(System.String,System.String)
+  name: MagnetException(String, String)
+  href: api/MagnetArgs.MagnetException.html#MagnetArgs_MagnetException__ctor_System_String_System_String_
+  commentId: M:MagnetArgs.MagnetException.#ctor(System.String,System.String)
+  fullName: MagnetArgs.MagnetException.MagnetException(System.String, System.String)
+  nameWithType: MagnetException.MagnetException(String, String)
+- uid: MagnetArgs.MagnetException.#ctor(System.String,System.String,System.Exception)
+  name: MagnetException(String, String, Exception)
+  href: api/MagnetArgs.MagnetException.html#MagnetArgs_MagnetException__ctor_System_String_System_String_System_Exception_
+  commentId: M:MagnetArgs.MagnetException.#ctor(System.String,System.String,System.Exception)
+  fullName: MagnetArgs.MagnetException.MagnetException(System.String, System.String, System.Exception)
+  nameWithType: MagnetException.MagnetException(String, String, Exception)
+- uid: MagnetArgs.MagnetException.#ctor*
+  name: MagnetException
+  href: api/MagnetArgs.MagnetException.html#MagnetArgs_MagnetException__ctor_
+  commentId: Overload:MagnetArgs.MagnetException.#ctor
+  isSpec: "True"
+  fullName: MagnetArgs.MagnetException.MagnetException
+  nameWithType: MagnetException.MagnetException
+- uid: MagnetArgs.MagnetException.Argument
+  name: Argument
+  href: api/MagnetArgs.MagnetException.html#MagnetArgs_MagnetException_Argument
+  commentId: P:MagnetArgs.MagnetException.Argument
+  fullName: MagnetArgs.MagnetException.Argument
+  nameWithType: MagnetException.Argument
+- uid: MagnetArgs.MagnetException.Argument*
+  name: Argument
+  href: api/MagnetArgs.MagnetException.html#MagnetArgs_MagnetException_Argument_
+  commentId: Overload:MagnetArgs.MagnetException.Argument
+  isSpec: "True"
+  fullName: MagnetArgs.MagnetException.Argument
+  nameWithType: MagnetException.Argument
+- uid: MagnetArgs.MagnetizableAttribute
+  name: MagnetizableAttribute
+  href: api/MagnetArgs.MagnetizableAttribute.html
+  commentId: T:MagnetArgs.MagnetizableAttribute
+  fullName: MagnetArgs.MagnetizableAttribute
+  nameWithType: MagnetizableAttribute
+- uid: MagnetArgs.MissingParserException
+  name: MissingParserException
+  href: api/MagnetArgs.MissingParserException.html
+  commentId: T:MagnetArgs.MissingParserException
+  fullName: MagnetArgs.MissingParserException
+  nameWithType: MissingParserException
+- uid: MagnetArgs.MissingParserException.#ctor(System.String)
+  name: MissingParserException(String)
+  href: api/MagnetArgs.MissingParserException.html#MagnetArgs_MissingParserException__ctor_System_String_
+  commentId: M:MagnetArgs.MissingParserException.#ctor(System.String)
+  fullName: MagnetArgs.MissingParserException.MissingParserException(System.String)
+  nameWithType: MissingParserException.MissingParserException(String)
+- uid: MagnetArgs.MissingParserException.#ctor(System.String,System.String)
+  name: MissingParserException(String, String)
+  href: api/MagnetArgs.MissingParserException.html#MagnetArgs_MissingParserException__ctor_System_String_System_String_
+  commentId: M:MagnetArgs.MissingParserException.#ctor(System.String,System.String)
+  fullName: MagnetArgs.MissingParserException.MissingParserException(System.String, System.String)
+  nameWithType: MissingParserException.MissingParserException(String, String)
+- uid: MagnetArgs.MissingParserException.#ctor(System.String,System.String,System.Exception)
+  name: MissingParserException(String, String, Exception)
+  href: api/MagnetArgs.MissingParserException.html#MagnetArgs_MissingParserException__ctor_System_String_System_String_System_Exception_
+  commentId: M:MagnetArgs.MissingParserException.#ctor(System.String,System.String,System.Exception)
+  fullName: MagnetArgs.MissingParserException.MissingParserException(System.String, System.String, System.Exception)
+  nameWithType: MissingParserException.MissingParserException(String, String, Exception)
+- uid: MagnetArgs.MissingParserException.#ctor*
+  name: MissingParserException
+  href: api/MagnetArgs.MissingParserException.html#MagnetArgs_MissingParserException__ctor_
+  commentId: Overload:MagnetArgs.MissingParserException.#ctor
+  isSpec: "True"
+  fullName: MagnetArgs.MissingParserException.MissingParserException
+  nameWithType: MissingParserException.MissingParserException
+- uid: MagnetArgs.NotMagnetizableException
+  name: NotMagnetizableException
+  href: api/MagnetArgs.NotMagnetizableException.html
+  commentId: T:MagnetArgs.NotMagnetizableException
+  fullName: MagnetArgs.NotMagnetizableException
+  nameWithType: NotMagnetizableException
+- uid: MagnetArgs.NotMagnetizableException.#ctor
+  name: NotMagnetizableException()
+  href: api/MagnetArgs.NotMagnetizableException.html#MagnetArgs_NotMagnetizableException__ctor
+  commentId: M:MagnetArgs.NotMagnetizableException.#ctor
+  fullName: MagnetArgs.NotMagnetizableException.NotMagnetizableException()
+  nameWithType: NotMagnetizableException.NotMagnetizableException()
+- uid: MagnetArgs.NotMagnetizableException.#ctor(System.String)
+  name: NotMagnetizableException(String)
+  href: api/MagnetArgs.NotMagnetizableException.html#MagnetArgs_NotMagnetizableException__ctor_System_String_
+  commentId: M:MagnetArgs.NotMagnetizableException.#ctor(System.String)
+  fullName: MagnetArgs.NotMagnetizableException.NotMagnetizableException(System.String)
+  nameWithType: NotMagnetizableException.NotMagnetizableException(String)
+- uid: MagnetArgs.NotMagnetizableException.#ctor(System.String,System.Exception)
+  name: NotMagnetizableException(String, Exception)
+  href: api/MagnetArgs.NotMagnetizableException.html#MagnetArgs_NotMagnetizableException__ctor_System_String_System_Exception_
+  commentId: M:MagnetArgs.NotMagnetizableException.#ctor(System.String,System.Exception)
+  fullName: MagnetArgs.NotMagnetizableException.NotMagnetizableException(System.String, System.Exception)
+  nameWithType: NotMagnetizableException.NotMagnetizableException(String, Exception)
+- uid: MagnetArgs.NotMagnetizableException.#ctor*
+  name: NotMagnetizableException
+  href: api/MagnetArgs.NotMagnetizableException.html#MagnetArgs_NotMagnetizableException__ctor_
+  commentId: Overload:MagnetArgs.NotMagnetizableException.#ctor
+  isSpec: "True"
+  fullName: MagnetArgs.NotMagnetizableException.NotMagnetizableException
+  nameWithType: NotMagnetizableException.NotMagnetizableException
+- uid: MagnetArgs.ParserAttribute
+  name: ParserAttribute
+  href: api/MagnetArgs.ParserAttribute.html
+  commentId: T:MagnetArgs.ParserAttribute
+  fullName: MagnetArgs.ParserAttribute
+  nameWithType: ParserAttribute
+- uid: MagnetArgs.ParserAttribute.#ctor(System.Type)
+  name: ParserAttribute(Type)
+  href: api/MagnetArgs.ParserAttribute.html#MagnetArgs_ParserAttribute__ctor_System_Type_
+  commentId: M:MagnetArgs.ParserAttribute.#ctor(System.Type)
+  fullName: MagnetArgs.ParserAttribute.ParserAttribute(System.Type)
+  nameWithType: ParserAttribute.ParserAttribute(Type)
+- uid: MagnetArgs.ParserAttribute.#ctor*
+  name: ParserAttribute
+  href: api/MagnetArgs.ParserAttribute.html#MagnetArgs_ParserAttribute__ctor_
+  commentId: Overload:MagnetArgs.ParserAttribute.#ctor
+  isSpec: "True"
+  fullName: MagnetArgs.ParserAttribute.ParserAttribute
+  nameWithType: ParserAttribute.ParserAttribute
+- uid: MagnetArgs.ParserAttribute.Type
+  name: Type
+  href: api/MagnetArgs.ParserAttribute.html#MagnetArgs_ParserAttribute_Type
+  commentId: P:MagnetArgs.ParserAttribute.Type
+  fullName: MagnetArgs.ParserAttribute.Type
+  nameWithType: ParserAttribute.Type
+- uid: MagnetArgs.ParserAttribute.Type*
+  name: Type
+  href: api/MagnetArgs.ParserAttribute.html#MagnetArgs_ParserAttribute_Type_
+  commentId: Overload:MagnetArgs.ParserAttribute.Type
+  isSpec: "True"
+  fullName: MagnetArgs.ParserAttribute.Type
+  nameWithType: ParserAttribute.Type
+- uid: MagnetArgs.Parsers
+  name: MagnetArgs.Parsers
+  href: api/MagnetArgs.Parsers.html
+  commentId: N:MagnetArgs.Parsers
+  fullName: MagnetArgs.Parsers
+  nameWithType: MagnetArgs.Parsers
+- uid: MagnetArgs.Parsers.DateTimeParser
+  name: DateTimeParser
+  href: api/MagnetArgs.Parsers.DateTimeParser.html
+  commentId: T:MagnetArgs.Parsers.DateTimeParser
+  fullName: MagnetArgs.Parsers.DateTimeParser
+  nameWithType: DateTimeParser
+- uid: MagnetArgs.Parsers.DateTimeParser.Parse(System.String)
+  name: Parse(String)
+  href: api/MagnetArgs.Parsers.DateTimeParser.html#MagnetArgs_Parsers_DateTimeParser_Parse_System_String_
+  commentId: M:MagnetArgs.Parsers.DateTimeParser.Parse(System.String)
+  fullName: MagnetArgs.Parsers.DateTimeParser.Parse(System.String)
+  nameWithType: DateTimeParser.Parse(String)
+- uid: MagnetArgs.Parsers.DateTimeParser.Parse*
+  name: Parse
+  href: api/MagnetArgs.Parsers.DateTimeParser.html#MagnetArgs_Parsers_DateTimeParser_Parse_
+  commentId: Overload:MagnetArgs.Parsers.DateTimeParser.Parse
+  isSpec: "True"
+  fullName: MagnetArgs.Parsers.DateTimeParser.Parse
+  nameWithType: DateTimeParser.Parse
+- uid: MagnetArgs.Parsers.DecimalParser
+  name: DecimalParser
+  href: api/MagnetArgs.Parsers.DecimalParser.html
+  commentId: T:MagnetArgs.Parsers.DecimalParser
+  fullName: MagnetArgs.Parsers.DecimalParser
+  nameWithType: DecimalParser
+- uid: MagnetArgs.Parsers.DecimalParser.Parse(System.String)
+  name: Parse(String)
+  href: api/MagnetArgs.Parsers.DecimalParser.html#MagnetArgs_Parsers_DecimalParser_Parse_System_String_
+  commentId: M:MagnetArgs.Parsers.DecimalParser.Parse(System.String)
+  fullName: MagnetArgs.Parsers.DecimalParser.Parse(System.String)
+  nameWithType: DecimalParser.Parse(String)
+- uid: MagnetArgs.Parsers.DecimalParser.Parse*
+  name: Parse
+  href: api/MagnetArgs.Parsers.DecimalParser.html#MagnetArgs_Parsers_DecimalParser_Parse_
+  commentId: Overload:MagnetArgs.Parsers.DecimalParser.Parse
+  isSpec: "True"
+  fullName: MagnetArgs.Parsers.DecimalParser.Parse
+  nameWithType: DecimalParser.Parse

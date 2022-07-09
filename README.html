@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MagnetArgs </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="MagnetArgs ">
+    <meta name="generator" content="docfx 2.59.2.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="magnetargs">MagnetArgs</h1>
+
+<p><em>&quot;Simple argument parser with magnetism&quot;</em></p>
+<p>MagnetArgs helps with the task of mapping arguments to objects. Accelerating the process of define option variables in console applications or map complex objects in a variety of scenarios.</p>
+<hr>
+<h2 id="quick-install">Quick Install</h2>
+<p>Choose the method of your convenience.</p>
+<p>Package Manager:</p>
+<pre><code class="lang-shell">PM&gt; Install-Package MagnetArgs
+</code></pre>
+<p>.Net CLI:</p>
+<pre><code class="lang-shell">&gt; dotnet add package MagnetArgs
+</code></pre>
+<p><a href="https://arttorres.github.io/MagnetArgs/articles/install.html">&gt;&gt; See more installation options</a></p>
+<hr>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="step-1-define-your-classes">Step 1. Define your classes</h3>
+<p>It's as simple as define a class, extend from IronOre and define the Chunk attribute in the properties you want to map.</p>
+<p>You can define an alias for your arguments.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">class TypeObject : IronOre
+{
+    [Chunk(&quot;string-value&quot;, Alias = &quot;string&quot;)]
+    public string StringValue { get; set; }
+
+    [Chunk(&quot;char-value&quot;, Alias = &quot;char&quot;)]
+    public char CharValue { get; set; }
+
+    [Chunk(&quot;integer-value&quot;, Alias = &quot;int&quot;)]
+    public int IntegerValue { get; set; }
+
+    [Chunk(&quot;long-value&quot;, Alias = &quot;long&quot;)]
+    public long LongValue { get; set; }
+
+    [Chunk(&quot;boolean-value&quot;, Alias = &quot;bool&quot;)]
+    public bool BooleanValue { get; set; }
+
+    [Chunk(&quot;float-value&quot;, Alias = &quot;float&quot;)]
+    public float FloatValue { get; set; }
+
+    [Chunk(&quot;double-value&quot;, Alias = &quot;double&quot;)]
+    public double DoubleValue { get; set; }
+
+    [Chunk(&quot;decimal-value&quot;, Alias = &quot;decimal&quot;)]
+    public decimal DecimalValue { get; set; }
+}
+</code></pre>
+<h3 id="step-2-magnetize-all">Step 2. Magnetize All</h3>
+<p>With an instance of your object, you can magnetize and attract values. Provide the object and arguments to &lt;Magnet.Attract&gt;. They will be assigned automatically.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">var inputArgs = new string[] {
+    &quot;-string&quot;, &quot;This is an String&quot;,
+    &quot;-char&quot;, &quot;C&quot;,
+    &quot;-int&quot;, &quot;128&quot;,
+    &quot;-long&quot;, &quot;128&quot;,
+    &quot;-bool&quot;, &quot;true&quot;,
+    &quot;-float&quot;, &quot;12.8&quot;,
+    &quot;-double&quot;, &quot;12.8&quot;,
+    &quot;-decimal&quot;, &quot;12.8&quot;
+};
+var yourObject = new TypeObject();
+
+Magnet.Attract(yourObject, inputArgs);
+</code></pre>
+<h3 id="step-3-enjoy">Step 3. Enjoy</h3>
+<p>Example:</p>
+<pre><code class="lang-csharp">// Fully Mapped Object
+Console.WriteLine(yourObject.StringValue);
+Console.WriteLine(yourObject.IntegerValue);
+Console.WriteLine(yourObject.DoubleValue);
+
+</code></pre>
+<p><a href="https://arttorres.github.io/TWidgets/articles/quickstart.html">&gt;&gt; See more on Get Started</a></p>
+<hr>
+<h2 id="project-references">Project References</h2>
+<ul>
+<li><a href="https://arttorres.github.io/MagnetArgs">Homepage</a></li>
+<li><a href="https://arttorres.github.io/MagnetArgs/articles/quickstart.html">Get Started</a></li>
+<li><a href="https://arttorres.github.io/MagnetArgs/articles/intro.html">Documentation</a></li>
+<li><a href="https://arttorres.github.io/MagnetArgs/api/TWidgets.html">API Documentation</a></li>
+<li><a href="https://www.nuget.org/packages/MagnetArgs">Nuget Package</a></li>
+<li><a href="https://github.com/arttorres/MagnetArgs/releases">Release Notes</a></li>
+<li><a href="https://github.com/ArtTorres/MagnetArgs/blob/master/.github/CONTRIBUTING.md">Contributing Guidelines</a></li>
+<li><a href="https://github.com/ArtTorres/MagnetArgs/blob/master/LICENSE">License</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ArtTorres/MagnetArgs/blob/docs/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>
