@@ -1,2 +1,25 @@
 - name: Introduction
   href: intro.md
+- name: Installation
+  href: install.md
+- name: Get Started
+  href: get-started.md
+- name: Rules
+  href: rules/index.md
+  items: 
+    - name: Optional Argument
+      href: rules/optional.md
+    - name: Is-Required
+      href: rules/is-required.md
+    - name: If-Present
+      href: rules/if-present.md
+    - name: Default
+      href: rules/default.md
+    - name: Parser
+      href: rules/parser.md
+- name: Advanced Rules
+  href: rules/advanced/index.md
+  items: 
+    - name: Is-Required-If-Present
+      href: rules/advanced/is-required-if-present.md
+  

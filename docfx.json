@@ -5,7 +5,7 @@
         {
 		      "cwd": "../",
           "files": [
-            "MagnetArgs/src/MagnetArgs/**.csproj"
+            "MagnetArgs/src/**.csproj"
           ]
         }
       ],
@@ -53,7 +53,7 @@
         ]
       }
     ],
-    "dest": "../MagnetArgs.Pages",
+    "dest": "docs",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
