@@ -10,11 +10,11 @@
     <meta name="title" content="MagnetArgs ">
     <meta name="generator" content="docfx 2.59.2.0">
     
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles/docfx.vendor.css">
-    <link rel="stylesheet" href="styles/docfx.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <meta property="docfx:navrel" content="toc.html">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
     
@@ -34,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="index.html">
-                <img id="logo" class="svg" src="logo.svg" alt="">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -57,7 +57,14 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="magnetargs">MagnetArgs</h1>
@@ -65,7 +72,7 @@
 <p><em>&quot;Simple argument parser with magnetism&quot;</em></p>
 <p>MagnetArgs helps with the task of mapping arguments to objects. Accelerating the process of define option variables in console applications or map complex objects in a variety of scenarios.</p>
 <hr>
-<h2 id="quick-install">Quick Install</h2>
+<h2 id="install">Install</h2>
 <p>Choose the method of your convenience.</p>
 <p>Package Manager:</p>
 <pre><code class="lang-shell">PM&gt; Install-Package MagnetArgs
@@ -73,17 +80,78 @@
 <p>.Net CLI:</p>
 <pre><code class="lang-shell">&gt; dotnet add package MagnetArgs
 </code></pre>
-<p><a href="https://arttorres.github.io/MagnetArgs/articles/install.html">&gt;&gt; See more installation options</a></p>
+<!---
+[>> See more installation options](https://arttorres.github.io/MagnetArgs/articles/install.html)
+-->
 <hr>
-<h2 id="get-started">Get Started</h2>
-<p><a href="https://arttorres.github.io/TWidgets/articles/quickstart.html">&gt;&gt; See more on Get Started</a></p>
+<h2 id="basic-setup">Basic Setup</h2>
+<h3 id="step-1-define-your-classes">Step 1. Define your classes</h3>
+<p>It's as simple as define a class, extend from IronOre and define the Chunk attribute in the properties you want to map.</p>
+<p>You can define an alias for your arguments.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">[Magnetizable]
+class TypeObject
+{
+    [Argument(&quot;string-value&quot;, Alias = &quot;string&quot;)]
+    public string StringValue { get; set; }
+
+    [Argument(&quot;char-value&quot;, Alias = &quot;char&quot;)]
+    public char CharValue { get; set; }
+
+    [Argument(&quot;integer-value&quot;, Alias = &quot;int&quot;)]
+    public int IntegerValue { get; set; }
+
+    [Argument(&quot;long-value&quot;, Alias = &quot;long&quot;)]
+    public long LongValue { get; set; }
+
+    [Argument(&quot;boolean-value&quot;, Alias = &quot;bool&quot;)]
+    public bool BooleanValue { get; set; }
+
+    [Argument(&quot;float-value&quot;, Alias = &quot;float&quot;)]
+    public float FloatValue { get; set; }
+
+    [Argument(&quot;double-value&quot;, Alias = &quot;double&quot;)]
+    public double DoubleValue { get; set; }
+
+    [Argument(&quot;decimal-value&quot;, Alias = &quot;decimal&quot;)]
+    public decimal DecimalValue { get; set; }
+}
+</code></pre>
+<h3 id="step-2-attract-all">Step 2. Attract All</h3>
+<p>With an instance of your object, you can magnetize and attract values. Provide the object and arguments to &lt;Magnet.Attract&gt;. They will be assigned automatically.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">var inputArgs = new string[] {
+    &quot;-string&quot;, &quot;This is an String&quot;,
+    &quot;-char&quot;, &quot;C&quot;,
+    &quot;-int&quot;, &quot;128&quot;,
+    &quot;-long&quot;, &quot;128&quot;,
+    &quot;-bool&quot;, &quot;true&quot;,
+    &quot;-float&quot;, &quot;12.8&quot;,
+    &quot;-double&quot;, &quot;12.8&quot;,
+    &quot;-decimal&quot;, &quot;12.8&quot;
+};
+var yourObject = new TypeObject();
+
+Magnet.Attract(yourObject, inputArgs);
+</code></pre>
+<h3 id="step-3-use">Step 3. Use</h3>
+<p>Example:</p>
+<pre><code class="lang-csharp">// Fully Mapped Object
+Console.WriteLine(yourObject.StringValue);
+Console.WriteLine(yourObject.IntegerValue);
+Console.WriteLine(yourObject.DoubleValue);
+...
+</code></pre>
+<!---
+[>> See more on Get Started](https://arttorres.github.io/TWidgets/articles/quickstart.html)
+-->
 <hr>
 <h2 id="project-references">Project References</h2>
 <ul>
 <li><a href="https://arttorres.github.io/MagnetArgs">Homepage</a></li>
-<li><a href="https://arttorres.github.io/MagnetArgs/articles/quickstart.html">Get Started</a></li>
-<li><a href="https://arttorres.github.io/MagnetArgs/articles/intro.html">Documentation</a></li>
-<li><a href="https://arttorres.github.io/MagnetArgs/api/TWidgets.html">API Documentation</a></li>
+<li>[Get Started]<!--(https://arttorres.github.io/MagnetArgs/articles/quickstart.html)--></li>
+<li>[Documentation]<!--(https://arttorres.github.io/MagnetArgs/articles/intro.html)--></li>
+<li>[API Documentation]<!--(https://arttorres.github.io/MagnetArgs/api/TWidgets.html)--></li>
 <li><a href="https://www.nuget.org/packages/MagnetArgs">Nuget Package</a></li>
 <li><a href="https://github.com/arttorres/MagnetArgs/releases">Release Notes</a></li>
 <li><a href="https://github.com/ArtTorres/MagnetArgs/blob/master/.github/CONTRIBUTING.md">Contributing Guidelines</a></li>
@@ -97,7 +165,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ArtTorres/MagnetArgs/blob/gh-pages/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ArtTorres/MagnetArgs/blob/gh-pages/articles/get-started.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -124,8 +192,8 @@
       </footer>
     </div>
     
-    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="styles/docfx.js"></script>
-    <script type="text/javascript" src="styles/main.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>

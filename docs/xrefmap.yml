@@ -287,25 +287,6 @@ references:
   isSpec: "True"
   fullName: MagnetArgs.IfPresentAttribute.ArgumentName
   nameWithType: IfPresentAttribute.ArgumentName
-- uid: MagnetArgs.IParser
-  name: IParser
-  href: api/MagnetArgs.IParser.html
-  commentId: T:MagnetArgs.IParser
-  fullName: MagnetArgs.IParser
-  nameWithType: IParser
-- uid: MagnetArgs.IParser.Parse(System.String)
-  name: Parse(String)
-  href: api/MagnetArgs.IParser.html#MagnetArgs_IParser_Parse_System_String_
-  commentId: M:MagnetArgs.IParser.Parse(System.String)
-  fullName: MagnetArgs.IParser.Parse(System.String)
-  nameWithType: IParser.Parse(String)
-- uid: MagnetArgs.IParser.Parse*
-  name: Parse
-  href: api/MagnetArgs.IParser.html#MagnetArgs_IParser_Parse_
-  commentId: Overload:MagnetArgs.IParser.Parse
-  isSpec: "True"
-  fullName: MagnetArgs.IParser.Parse
-  nameWithType: IParser.Parse
 - uid: MagnetArgs.IsRequiredAttribute
   name: IsRequiredAttribute
   href: api/MagnetArgs.IsRequiredAttribute.html
@@ -578,3 +559,22 @@ references:
   isSpec: "True"
   fullName: MagnetArgs.Parsers.DecimalParser.Parse
   nameWithType: DecimalParser.Parse
+- uid: MagnetArgs.Parsers.IParser
+  name: IParser
+  href: api/MagnetArgs.Parsers.IParser.html
+  commentId: T:MagnetArgs.Parsers.IParser
+  fullName: MagnetArgs.Parsers.IParser
+  nameWithType: IParser
+- uid: MagnetArgs.Parsers.IParser.Parse(System.String)
+  name: Parse(String)
+  href: api/MagnetArgs.Parsers.IParser.html#MagnetArgs_Parsers_IParser_Parse_System_String_
+  commentId: M:MagnetArgs.Parsers.IParser.Parse(System.String)
+  fullName: MagnetArgs.Parsers.IParser.Parse(System.String)
+  nameWithType: IParser.Parse(String)
+- uid: MagnetArgs.Parsers.IParser.Parse*
+  name: Parse
+  href: api/MagnetArgs.Parsers.IParser.html#MagnetArgs_Parsers_IParser_Parse_
+  commentId: Overload:MagnetArgs.Parsers.IParser.Parse
+  isSpec: "True"
+  fullName: MagnetArgs.Parsers.IParser.Parse
+  nameWithType: IParser.Parse

@@ -5,11 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class DateTimeParser
-   </title>
+    <title>Setup </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class DateTimeParser
-   ">
+    <meta name="title" content="Setup ">
     <meta name="generator" content="docfx 2.59.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -68,104 +66,66 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="MagnetArgs.Parsers.DateTimeParser">
-  
-  
-  <h1 id="MagnetArgs_Parsers_DateTimeParser" data-uid="MagnetArgs.Parsers.DateTimeParser" class="text-break">Class DateTimeParser
-  </h1>
-  <div class="markdown level0 summary"><p>Represent a parsing class for <span class="xref">System.DateTime</span> arguments.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">DateTimeParser</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="MagnetArgs.Parsers.IParser.html">IParser</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="MagnetArgs.Parsers.html">MagnetArgs.Parsers</a></h6>
-  <h6><strong>Assembly</strong>: MagnetArgs.dll</h6>
-  <h5 id="MagnetArgs_Parsers_DateTimeParser_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DateTimeParser : IParser</code></pre>
-  </div>
-  <h3 id="methods">Methods
-  </h3>
-  
-  
-  <a id="MagnetArgs_Parsers_DateTimeParser_Parse_" data-uid="MagnetArgs.Parsers.DateTimeParser.Parse*"></a>
-  <h4 id="MagnetArgs_Parsers_DateTimeParser_Parse_System_String_" data-uid="MagnetArgs.Parsers.DateTimeParser.Parse(System.String)">Parse(String)</h4>
-  <div class="markdown level1 summary"><p>Transforms an text input in an instance of <span class="xref">System.DateTime</span>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object Parse(string value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>A text input who represents a complex object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><p>An instance of the parsing object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="MagnetArgs.Parsers.IParser.html">IParser</a>
-  </div>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="setup">Setup</h1>
+
+<h3 id="step-1-define-your-classes">Step 1. Define your classes</h3>
+<p>It's as simple as define a class, extend from IronOre and define the Chunk attribute in the properties you want to map.</p>
+<p>You can define an alias for your arguments.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">class TypeObject : IronOre
+{
+    [Chunk(&quot;string-value&quot;, Alias = &quot;string&quot;)]
+    public string StringValue { get; set; }
+
+    [Chunk(&quot;char-value&quot;, Alias = &quot;char&quot;)]
+    public char CharValue { get; set; }
+
+    [Chunk(&quot;integer-value&quot;, Alias = &quot;int&quot;)]
+    public int IntegerValue { get; set; }
+
+    [Chunk(&quot;long-value&quot;, Alias = &quot;long&quot;)]
+    public long LongValue { get; set; }
+
+    [Chunk(&quot;boolean-value&quot;, Alias = &quot;bool&quot;)]
+    public bool BooleanValue { get; set; }
+
+    [Chunk(&quot;float-value&quot;, Alias = &quot;float&quot;)]
+    public float FloatValue { get; set; }
+
+    [Chunk(&quot;double-value&quot;, Alias = &quot;double&quot;)]
+    public double DoubleValue { get; set; }
+
+    [Chunk(&quot;decimal-value&quot;, Alias = &quot;decimal&quot;)]
+    public decimal DecimalValue { get; set; }
+}
+</code></pre>
+<h3 id="step-2-magnetize-all">Step 2. Magnetize All</h3>
+<p>With an instance of your object, you can magnetize and attract values. Provide the object and arguments to &lt;Magnet.Attract&gt;. They will be assigned automatically.</p>
+<p>Example:</p>
+<pre><code class="lang-csharp">var inputArgs = new string[] {
+    &quot;-string&quot;, &quot;This is an String&quot;,
+    &quot;-char&quot;, &quot;C&quot;,
+    &quot;-int&quot;, &quot;128&quot;,
+    &quot;-long&quot;, &quot;128&quot;,
+    &quot;-bool&quot;, &quot;true&quot;,
+    &quot;-float&quot;, &quot;12.8&quot;,
+    &quot;-double&quot;, &quot;12.8&quot;,
+    &quot;-decimal&quot;, &quot;12.8&quot;
+};
+var yourObject = new TypeObject();
+
+Magnet.Attract(yourObject, inputArgs);
+</code></pre>
+<h3 id="step-3-enjoy">Step 3. Enjoy</h3>
+<p>Example:</p>
+<pre><code class="lang-csharp">// Fully Mapped Object
+Console.WriteLine(yourObject.StringValue);
+Console.WriteLine(yourObject.IntegerValue);
+Console.WriteLine(yourObject.DoubleValue);
+
+</code></pre>
+<p><a href="https://arttorres.github.io/TWidgets/articles/quickstart.html">&gt;&gt; See more on Get Started</a></p>
 </article>
           </div>
           
@@ -173,6 +133,9 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ArtTorres/MagnetArgs/blob/gh-pages/articles/setup.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
