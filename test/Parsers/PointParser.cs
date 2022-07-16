@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MagnetArgs.Parsers;
+using System;
 
 namespace MagnetArgs.Test
 {
