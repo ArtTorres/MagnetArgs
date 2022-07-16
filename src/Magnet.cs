@@ -1,4 +1,5 @@
-﻿using MagnetArgs.Rules;
+﻿using MagnetArgs.Parsers;
+using MagnetArgs.Rules;
 using System;
 using System.Collections.Generic;
 using System.Reflection;

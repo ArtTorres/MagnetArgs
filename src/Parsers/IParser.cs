@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MagnetArgs
+namespace MagnetArgs.Parsers
 {
     /// <summary>
     /// Represent a parsing class for command arguments.
