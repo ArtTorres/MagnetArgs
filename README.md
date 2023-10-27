@@ -16,18 +16,17 @@ PM> Install-Package MagnetArgs
 ``` shell
 > dotnet add package MagnetArgs
 ```
-<!---
+
 [>> See more installation options](https://arttorres.github.io/MagnetArgs/articles/install.html)
--->
 ---
 
 ## Basic Setup
 
 ### Step 1. Define your classes
 
-It's as simple as define a class, extend from IronOre and define the Chunk attribute in the properties you want to map.
+It's as simple as define a class, decorating with the [Magnetizable] attribute and decorating the properties you want to map with the [Argument] attribute.
 
-You can define an alias for your arguments.
+You can define an alias for your arguments, set mapping rules and add parsing functions as you need.
 
 Example:
 ``` csharp
@@ -76,9 +75,13 @@ var inputArgs = new string[] {
     "-double", "12.8",
     "-decimal", "12.8"
 };
-var yourObject = new TypeObject();
 
-Magnet.Attract(yourObject, inputArgs);
+// Get object from arguments
+var yourObject = Magnet.Attract<TypeObject>(inputArgs);
+
+// OR Send an object as reference
+var yourObject = new TypeObject();
+Magnet.Attract(inputArgs, yourObject);
 ```
 
 ### Step 3. Use
@@ -92,16 +95,15 @@ Console.WriteLine(yourObject.IntegerValue);
 Console.WriteLine(yourObject.DoubleValue);
 ...
 ```
-<!---
-[>> See more on Get Started](https://arttorres.github.io/TWidgets/articles/quickstart.html)
--->
+
+[>> See more on Get Started](https://arttorres.github.io/TWidgets/articles/get-started.html)
 
 ---
 ## Project References
 - [Homepage](https://arttorres.github.io/MagnetArgs)
-- [Get Started]<!--(https://arttorres.github.io/MagnetArgs/articles/quickstart.html)-->
-- [Documentation]<!--(https://arttorres.github.io/MagnetArgs/articles/intro.html)-->
-- [API Documentation]<!--(https://arttorres.github.io/MagnetArgs/api/TWidgets.html)-->
+- [Get Started](https://arttorres.github.io/MagnetArgs/articles/get-started.html)
+- [Use Reference](https://arttorres.github.io/MagnetArgs/articles/intro.html)
+- [API Documentation](https://arttorres.github.io/MagnetArgs/api/index.html)
 - [Nuget Package](https://www.nuget.org/packages/MagnetArgs)
 - [Release Notes](https://github.com/arttorres/MagnetArgs/releases)
 - [Contributing Guidelines](https://github.com/ArtTorres/MagnetArgs/blob/master/.github/CONTRIBUTING.md)

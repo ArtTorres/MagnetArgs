@@ -3,7 +3,7 @@
 namespace MagnetArgs
 {
     /// <summary>
-    /// Extends the functinality of <see cref="Object"/>.
+    /// Extends the functionality of <see cref="Object"/>.
     /// </summary>
     internal static class ObjectExtension
     {

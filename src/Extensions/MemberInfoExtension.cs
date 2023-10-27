@@ -4,7 +4,7 @@ using System.Reflection;
 namespace MagnetArgs
 {
     /// <summary>
-    /// Extends the functinality of <see cref="MemberInfo"/>.
+    /// Extends the functionality of <see cref="MemberInfo"/>.
     /// </summary>
     internal static class MemberInfoExtension
     {
