@@ -1,29 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net5.0;netcoreapp3.1;netstandard2.0;net48</TargetFrameworks>
+    <TargetFrameworks>net7.0;net6.0;net5.0;netstandard2.1;netstandard2.0;netcoreapp3.1;net48</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.4.0.0</AssemblyVersion>
-    <FileVersion>0.4.0.0</FileVersion>
+    <AssemblyVersion>06.0.0</AssemblyVersion>
+    <FileVersion>0.6.0.0</FileVersion>
     <PackageId>MagnetArgs</PackageId>
     <Authors>Arturo Torres</Authors>
     <RepositoryUrl>https://github.com/arttorres/MagnetArgs</RepositoryUrl>
     <PackageProjectUrl>https://github.com/arttorres/MagnetArgs</PackageProjectUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/arttorres/MagnetArgs/master/LICENSE</PackageLicenseUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>argument parser console</PackageTags>
-    <Version>0.4</Version>
+    <Version>0.6</Version>
     <Copyright>Copyright ©2019 ArturoTorres</Copyright>
     <PackageIconUrl></PackageIconUrl>
-    <PackageReleaseNotes>New Attributes.
-New rule validation engine.
-Support of .Net 6.0
-End of support on .Net Framework 4.7.2 and previous.
-Minor improvements.
-</PackageReleaseNotes>
-    <Description>Simple argument parser with magnetism.</Description>
+    <PackageReleaseNotes>Adding net7.0 compatibility.</PackageReleaseNotes>
+    <Description>MagnetArgs helps with the task of mapping arguments to objects. Accelerating the process of define option variables in console applications or map complex objects in a variety of scenarios.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Title>MagnetArgs - Simple argument parser with magnetism.</Title>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -35,6 +33,14 @@ Minor improvements.
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\MagnetArgs.Pages\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
