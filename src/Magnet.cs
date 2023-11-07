@@ -96,15 +96,12 @@ namespace MagnetArgs
                             {
                                 case MagnetAction.SetNative:
                                 case MagnetAction.SetTyped:
-                                    Console.WriteLine("Action Taked: Set from {1}, Source: {0}", source.ToString(), action);
                                     SetValue(obj, GetValueFromSource(source, mProperty), mProperty);
                                     break;
                                 case MagnetAction.SetTrue:
-                                    Console.WriteLine("Action Taked: Set as True, Source: {0}", source.ToString());
                                     SetValue(obj, bool.TrueString, mProperty);
                                     break;
                                 case MagnetAction.Ignore:
-                                    Console.WriteLine("Action Taked: Ignore", action.ToString());
                                     break;
                             }
                         }
