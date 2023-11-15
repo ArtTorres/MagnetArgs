@@ -1,0 +1,46 @@
+name: Build MagnetArgs
+
+on:
+  push:
+    tags:
+      - '0.*'
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      working-directory: ./src
+      run: dotnet build --configuration Release
+
+    - name: Publish
+      working-directory: ./src
+      run: dotnet publish -c Release -o ./publish
+
+    - name: Zip Publish
+      working-directory: ./src 
+      run: 7z a MagnetArgs_${{github.ref_name}}_bin.zip ./publish/*.*
+        
+    - name: Create Release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "${{github.ref_name}}"
+        prerelease: false
+        title: "MagnetArgs - v${{github.ref_name}}"
+        files: ./src/MagnetArgs_${{github.ref_name}}_bin.zip
