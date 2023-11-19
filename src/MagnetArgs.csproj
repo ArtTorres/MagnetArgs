@@ -3,15 +3,15 @@
   <PropertyGroup>
     <TargetFrameworks>net8.0;net7.0;net6.0;net5.0;netstandard2.1;netstandard2.0;netcoreapp3.1;net48</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>06.2.0</AssemblyVersion>
-    <FileVersion>0.6.2.0</FileVersion>
+    <AssemblyVersion>06.2.1</AssemblyVersion>
+    <FileVersion>0.6.2.1</FileVersion>
     <PackageId>MagnetArgs</PackageId>
     <Authors>Arturo Torres</Authors>
     <RepositoryUrl>https://github.com/arttorres/MagnetArgs</RepositoryUrl>
     <PackageProjectUrl>https://github.com/arttorres/MagnetArgs</PackageProjectUrl>
     <RepositoryType>Git</RepositoryType>
     <PackageTags>argument parser console</PackageTags>
-    <Version>0.6.2</Version>
+    <Version>0.6.2.1</Version>
     <Copyright>Copyright ©2019 ArturoTorres</Copyright>
     <PackageIconUrl></PackageIconUrl>
     <PackageReleaseNotes>Adding net8.0 compatibility.</PackageReleaseNotes>
@@ -22,6 +22,9 @@
     <PackageIcon>icon.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <Nullable>disable</Nullable>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -29,7 +32,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>G:\ws_git\MagnetArgs\src\MagnetArgs\MagnetArgs.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
