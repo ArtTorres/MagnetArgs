@@ -28,13 +28,9 @@ jobs:
       working-directory: ./src
       run: dotnet build --configuration Release
 
-    - name: Publish
-      working-directory: ./src
-      run: dotnet publish -c Release -o ./publish
-
-    - name: Zip Publish
-      working-directory: ./src 
-      run: 7z a MagnetArgs_${{github.ref_name}}_bin.zip ./publish/*.*
+    - name: Zip Build
+      working-directory: ./src/bin
+      run: 7z a MagnetArgs_${{github.ref_name}}_bin.zip ./Release/*.*
         
     - name: Create Release
       uses: "marvinpinto/action-automatic-releases@latest"
