@@ -9,6 +9,10 @@ jobs:
   build:
     runs-on: windows-2022
 
+    permissions:
+      contents: write
+      packages: write
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -20,6 +24,9 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.0.x
+        source-url: https://nuget.pkg.github.com/ArtTorres/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: Restore dependencies
       run: dotnet restore
@@ -48,8 +55,8 @@ jobs:
     - name: Create Github Package
       working-directory: ./src/bin/Release
       env:
-        API_KEY: ${{secrets.AKG}}
-      run: dotnet nuget push "MagnetArgs.${{github.ref_name}}.nupkg" --api-key "%API_KEY%" --source https://nuget.pkg.github.com/ArtTorres/index.json
+        API_KEY: ${{secrets.GITHUB_TOKEN}}
+      run: dotnet nuget push "MagnetArgs.${{github.ref_name}}.nupkg"
 
     - name: Release NuGet Package
       working-directory: ./src/bin/Release
